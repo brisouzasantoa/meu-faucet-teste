@@ -29,14 +29,12 @@
             color: var(--text);
             padding: 20px;
             min-height: 100vh;
-            position: relative;
         }
         
         /* Container Principal */
         .container {
             max-width: 800px;
             margin: 0 auto;
-            position: relative;
         }
         
         /* Cabeçalho */
@@ -53,36 +51,26 @@
             font-size: 2.2rem;
             color: var(--accent);
             text-shadow: 0 2px 4px rgba(0,0,0,0.5);
-            word-spacing: 5px;
+            letter-spacing: 1px;
         }
         
-        /* Espaço para Anúncios */
+        /* Espaço para anúncios */
         .ad-space {
-            background: rgba(30, 30, 30, 0.5);
+            background: rgba(30, 30, 30, 0.6);
             border: 1px dashed rgba(255,255,255,0.2);
             border-radius: 8px;
             padding: 15px;
-            margin: 25px 0;
+            margin: 20px 0;
             text-align: center;
+            min-height: 90px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .ad-space p {
             color: rgba(255,255,255,0.5);
-        }
-        
-        .ad-space.top {
-            height: 90px; /* Tamanho padrão para banners (728x90) */
-        }
-        
-        .ad-space.side {
-            height: 600px; /* Tamanho para banners laterais (300x600) */
-            width: 300px;
-            position: fixed;
-            right: 20px;
-            top: 50%;
-            transform: translateY(-50%);
-            display: none;
-        }
-        
-        .ad-space.bottom {
-            height: 250px; /* Tamanho para banners grandes (300x250) */
+            font-size: 0.9rem;
         }
         
         /* Notificações */
@@ -99,42 +87,35 @@
         
         .notification-container.bottom {
             bottom: 20px;
-            left: 20px;
+            right: 20px;
         }
         
         .notification {
             background: linear-gradient(135deg, rgba(110, 69, 226, 0.9), rgba(255, 149, 0, 0.9));
             color: white;
-            padding: 12px;
+            padding: 12px 15px;
             border-radius: 8px;
-            margin-bottom: 10px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+            margin: 10px 0;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
             display: flex;
             align-items: center;
-            max-width: 300px;
-            transform: translateX(100%);
             opacity: 0;
-            transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            transform: translateX(100%);
+            transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
             backdrop-filter: blur(5px);
-            border: 1px solid rgba(255,255,255,0.2);
-        }
-        
-        .notification-container.bottom .notification {
-            transform: translateX(-100%);
+            border: 1px solid rgba(255,255,255,0.1);
+            max-width: 300px;
+            font-size: 0.9rem;
         }
         
         .notification.active {
-            transform: translateX(0);
             opacity: 1;
+            transform: translateX(0);
         }
         
         .notification.exiting {
-            transform: translateX(100%);
             opacity: 0;
-        }
-        
-        .notification-container.bottom .notification.exiting {
-            transform: translateX(-100%);
+            transform: translateX(100%);
         }
         
         .notification-icon {
@@ -145,23 +126,32 @@
         }
         
         .notification-content {
-            font-size: 0.9rem;
-            line-height: 1.4;
+            flex: 1;
         }
         
-        /* Lista de Plataformas (Coluna Única) */
+        .notification-badge {
+            background: rgba(0,0,0,0.3);
+            padding: 2px 8px;
+            border-radius: 10px;
+            font-size: 0.7rem;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 3px;
+        }
+        
+        /* Lista de Plataformas */
         .platforms-list {
             display: flex;
             flex-direction: column;
             gap: 15px;
-            margin-top: 20px;
+            margin-top: 30px;
         }
         
         .platform-card {
             background: linear-gradient(135deg, rgba(30, 30, 30, 0.8), rgba(50, 50, 50, 0.8));
             border-radius: 10px;
             padding: 18px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
             transition: all 0.3s ease;
             backdrop-filter: blur(5px);
             border: 1px solid rgba(255,255,255,0.1);
@@ -169,7 +159,7 @@
         
         .platform-card:hover {
             transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+            box-shadow: 0 6px 18px rgba(0,0,0,0.3);
         }
         
         .platform-header {
@@ -194,15 +184,15 @@
             background: var(--danger);
             color: white;
             padding: 3px 8px;
-            border-radius: 15px;
-            font-size: 0.75rem;
+            border-radius: 20px;
+            font-size: 0.7rem;
             font-weight: bold;
             margin-left: 8px;
             display: inline-block;
         }
         
         .platform-details {
-            margin-bottom: 15px;
+            margin-bottom: 12px;
             line-height: 1.5;
             font-size: 0.95rem;
         }
@@ -218,24 +208,46 @@
             font-size: 0.95rem;
             width: 100%;
             cursor: pointer;
-            box-shadow: 0 4px 15px rgba(255, 149, 0, 0.4);
+            box-shadow: 0 4px 12px rgba(255, 149, 0, 0.3);
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 0.5px;
             animation: pulse 2s infinite;
         }
         
         .claim-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(255, 149, 0, 0.6);
+            box-shadow: 0 6px 16px rgba(255, 149, 0, 0.5);
         }
         
         @keyframes pulse {
             0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 149, 0, 0.4); }
-            70% { transform: scale(1.02); box-shadow: 0 0 0 8px rgba(255, 149, 0, 0); }
+            70% { transform: scale(1.02); box-shadow: 0 0 0 10px rgba(255, 149, 0, 0); }
             100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 149, 0, 0); }
+        }
+        
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .notification-container {
+                width: calc(100% - 40px);
+                max-width: 300px;
+            }
+            
+            .notification-container.top {
+                top: 10px;
+                right: 20px;
+            }
+            
+            .notification-container.bottom {
+                bottom: 10px;
+                right: 20px;
+            }
+            
+            h1 {
+                font-size: 1.8rem;
+            }
         }
         
         /* Estrelas de Avaliação */
@@ -244,50 +256,23 @@
             font-size: 0.9rem;
             margin-left: 4px;
         }
-        
-        /* Responsividade */
-        @media (min-width: 1200px) {
-            .ad-space.side {
-                display: block;
-            }
-        }
-        
-        @media (max-width: 768px) {
-            .notification-container {
-                width: 250px;
-            }
-            
-            .notification-container.top {
-                top: 10px;
-                right: 10px;
-            }
-            
-            .notification-container.bottom {
-                bottom: 10px;
-                left: 10px;
-            }
-            
-            h1 {
-                font-size: 1.8rem;
-            }
-        }
     </style>
 </head>
 <body>
-    <!-- Anúncio Topo (728x90) -->
-    <div class="ad-space top">
-        Espaço para anúncio (728x90) - Propeller Ads, Kadam, etc.
-    </div>
-    
     <div class="container">
         <header>
-            <h1>TOP PLATAFORMAS PARA GANHAR CRIPTO</h1>
+            <h1>🏆 TOP PLATAFORMAS PARA GANHAR CRIPTO</h1>
             <p>Saques instantâneos • Bônus exclusivos • Avaliadas pela comunidade</p>
         </header>
         
-        <!-- Notificações -->
-        <div class="notification-container top" id="topNotifications"></div>
-        <div class="notification-container bottom" id="bottomNotifications"></div>
+        <!-- Espaço para anúncios -->
+        <div class="ad-space">
+            <p>Espaço publicitário (Kadam, Propeller Ads, Adsterra)</p>
+        </div>
+        
+        <!-- Notificações Dinâmicas -->
+        <div class="notification-container top" id="notificationContainerTop"></div>
+        <div class="notification-container bottom" id="notificationContainerBottom"></div>
         
         <!-- Lista de Plataformas -->
         <div class="platforms-list">
@@ -442,4 +427,236 @@
                         <span class="platform-name">10. IpGold</span>
                         <span class="platform-badge">AUTOMÁTICO</span>
                     </div>
-                    <div class="platform-rating">4.1
+                    <div class="platform-rating">4.1 <span class="stars">★★★★☆</span></div>
+                </div>
+                <div class="platform-details">
+                    <p>🤖 <strong>Ganhos automáticos</strong></p>
+                    <p>💳 Saques para PayPal e cripto</p>
+                </div>
+                <button class="claim-btn" onclick="showPlatformNotification('IpGold')">ATIVAR GANHOS</button>
+            </div>
+            
+            <!-- FreeBitco.in -->
+            <div class="platform-card">
+                <div class="platform-header">
+                    <div>
+                        <span class="platform-name">11. FreeBitco.in</span>
+                        <span class="platform-badge">LENDÁRIO</span>
+                    </div>
+                    <div class="platform-rating">4.9 <span class="stars">★★★★★</span></div>
+                </div>
+                <div class="platform-details">
+                    <p>🎁 <strong>Gire a roda grátis</strong> a cada hora</p>
+                    <p>🏆 Mais de 1 milhão de usuários</p>
+                </div>
+                <button class="claim-btn" onclick="showPlatformNotification('FreeBitco.in')">GIRAR RODA AGORA</button>
+            </div>
+            
+            <!-- ADBTC -->
+            <div class="platform-card">
+                <div class="platform-header">
+                    <div>
+                        <span class="platform-name">12. ADBTC</span>
+                        <span class="platform-badge">PTC</span>
+                    </div>
+                    <div class="platform-rating">4.3 <span class="stars">★★★★☆</span></div>
+                </div>
+                <div class="platform-details">
+                    <p>📌 <strong>Ganhe Bitcoin clicando</strong></p>
+                    <p>⚡ Saques rápidos</p>
+                </div>
+                <button class="claim-btn" onclick="showPlatformNotification('ADBTC')">CLICAR PARA GANHAR</button>
+            </div>
+        </div>
+        
+        <!-- Espaço para anúncios no final -->
+        <div class="ad-space">
+            <p>Espaço publicitário (Kadam, Propeller Ads, Adsterra)</p>
+        </div>
+    </div>
+
+    <script>
+        // Notificações estratégicas (aumentadas)
+        const notifications = [
+            {
+                icon: "💸",
+                badge: "AGORA",
+                message: "<strong>@BitcoinKing</strong> sacou <span style='color:#FFD700'>1.042 DOGE</span> via FaucetPay!",
+                duration: 7000
+            },
+            {
+                icon: "⚡",
+                badge: "LIMITADO",
+                message: "Últimos <span style='color:#FFD700'>2 lugares</span> para bônus 3X!",
+                duration: 6000
+            },
+            {
+                icon: "🇷🇺",
+                badge: "RUSSO",
+                message: "<strong>150 RUB</strong> pagos nos últimos 15 minutos!",
+                duration: 5000
+            },
+            {
+                icon: "🎰",
+                badge: "BÔNUS",
+                message: "Rodada bônus ativa! <span style='color:#FFD700'>+1,000 SATS</span> para os próximos!",
+                duration: 8000
+            },
+            {
+                icon: "🔥",
+                badge: "RECORDE",
+                message: "<strong>5,200 saques</strong> processados hoje!",
+                duration: 6500
+            },
+            {
+                icon: "💰",
+                badge: "PROMOÇÃO",
+                message: "Depósito mínimo <span style='color:#FFD700'>50% menor</span> por tempo limitado!",
+                duration: 7500
+            }
+        ];
+        
+        // Mostrar notificação da plataforma
+        function showPlatformNotification(platform) {
+            let message, icon;
+            switch(platform) {
+                case 'FaucetPay':
+                    message = `🔥 <strong>Oferta especial!</strong> Ganhe 100 SATS extras no ${platform} hoje!`;
+                    icon = "💸";
+                    break;
+                case 'FireFaucet':
+                    message = `⚡ <strong>Bônus 2X</strong> ativo agora no ${platform}!`;
+                    icon = "🔥";
+                    break;
+                case 'Cointiply':
+                    message = `🎰 <strong>Novo jogo lançado</strong> no ${platform} com prêmios em Bitcoin!`;
+                    icon = "🎮";
+                    break;
+                case 'SeoFast':
+                    message = `📈 <strong>Tarefas russas</strong> pagando 20% mais no ${platform}!`;
+                    icon = "🇷🇺";
+                    break;
+                case 'Wmmail':
+                    message = `📧 <strong>Novos emails premium</strong> disponíveis no ${platform}!`;
+                    icon = "✉️";
+                    break;
+                case 'SocialTools':
+                    message = `👍 <strong>Campanhas sociais</strong> com pagamento instantâneo no ${platform}!`;
+                    icon = "📱";
+                    break;
+                case 'SeoSprint':
+                    message = `⚡ <strong>Tarefas rápidas</strong> com recompensas dobradas no ${platform}!`;
+                    icon = "⏱️";
+                    break;
+                case 'ProfitCentr':
+                    message = `🌎 <strong>Oportunidades globais</strong> disponíveis no ${platform}!`;
+                    icon = "💰";
+                    break;
+                case 'Web-IP':
+                    message = `🌐 <strong>Navegação premiada</strong> rendendo 2X no ${platform}!`;
+                    icon = "🖥️";
+                    break;
+                case 'IpGold':
+                    message = `🤖 <strong>Ganhos automáticos</strong> configurados no ${platform}!`;
+                    icon = "⚙️";
+                    break;
+                case 'FreeBitco.in':
+                    message = `🎁 <strong>Roda da fortuna</strong> com prêmios maiores no ${platform}!`;
+                    icon = "🏆";
+                    break;
+                case 'ADBTC':
+                    message = `📌 <strong>Cliques premium</strong> pagando mais no ${platform}!`;
+                    icon = "💰";
+                    break;
+                default:
+                    message = `🎉 <strong>Nova oportunidade</strong> disponível no ${platform}!`;
+                    icon = "🔔";
+            }
+            
+            showNotification({
+                icon: icon,
+                badge: "PLATAFORMA",
+                message: message,
+                duration: 6000
+            });
+        }
+        
+        // Sistema de notificações melhorado
+        function showNotification(notif) {
+            // Alternar entre os containers top e bottom
+            const containers = [
+                document.getElementById('notificationContainerTop'),
+                document.getElementById('notificationContainerBottom')
+            ];
+            const container = containers[Math.floor(Math.random() * containers.length)];
+            
+            const notification = document.createElement('div');
+            notification.className = 'notification';
+            notification.innerHTML = `
+                <div class="notification-icon">${notif.icon}</div>
+                <div class="notification-content">
+                    <span class="notification-badge">${notif.badge}</span>
+                    <p>${notif.message}</p>
+                </div>
+            `;
+            
+            container.appendChild(notification);
+            
+            // Ativar animação após um pequeno delay para garantir o fluxo de renderização
+            setTimeout(() => {
+                notification.classList.add('active');
+            }, 10);
+            
+            // Remover após duração com animação de saída
+            setTimeout(() => {
+                notification.classList.add('exiting');
+                setTimeout(() => {
+                    notification.remove();
+                }, 400); // Tempo para a animação de saída
+            }, notif.duration);
+        }
+        
+        // Rotação automática de notificações
+        let currentNotif = 0;
+        function rotateNotifications() {
+            showNotification(notifications[currentNotif]);
+            currentNotif = (currentNotif + 1) % notifications.length;
+            setTimeout(rotateNotifications, 10000); // A cada 10 segundos
+        }
+        
+        // Iniciar notificações
+        setTimeout(() => {
+            rotateNotifications();
+            // Mostrar notificação de boas-vindas
+            showNotification({
+                icon: "👋",
+                badge: "BEM-VINDO",
+                message: "Aproveite nossas <strong>plataformas recomendadas</strong> para ganhar cripto!",
+                duration: 5000
+            });
+        }, 1500);
+        
+        // Efeito de digitação no título (opcional)
+        function typeWriter() {
+            const title = document.querySelector('h1');
+            const originalText = title.innerText;
+            title.innerText = '';
+            
+            let i = 0;
+            const typing = setInterval(() => {
+                if (i < originalText.length) {
+                    title.innerText += originalText.charAt(i);
+                    i++;
+                } else {
+                    clearInterval(typing);
+                }
+            }, 50);
+        }
+        
+        // Iniciar efeitos quando a página carregar
+        window.addEventListener('load', () => {
+            typeWriter();
+        });
+    </script>
+</body>
+</html>
