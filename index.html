@@ -52,6 +52,7 @@
             color: var(--accent);
             text-shadow: 0 2px 4px rgba(0,0,0,0.5);
             letter-spacing: 1px;
+            word-spacing: 3px;
         }
         
         /* Espaço para anúncios */
@@ -289,7 +290,7 @@
                     <p>💰 <strong>5,342 saques hoje</strong> | Mínimo: 50 DOGE</p>
                     <p>⚡ Pagamentos instantâneos em 10+ criptomoedas</p>
                 </div>
-                <button class="claim-btn" onclick="showPlatformNotification('FaucetPay')">SAQUE AGORA +100 BÔNUS</button>
+                <button class="claim-btn" onclick="showPlatformNotification('FaucetPay', 'DOGE')">SAQUE AGORA +100 BÔNUS</button>
             </div>
             
             <!-- FireFaucet -->
@@ -305,7 +306,7 @@
                     <p>🔥 <strong>2,100 usuários online</strong> | Pagamento em RUB</p>
                     <p>🎮 Jogos exclusivos com recompensas em cripto</p>
                 </div>
-                <button class="claim-btn" onclick="showPlatformNotification('FireFaucet')">GANHE AQUI +50% BÔNUS</button>
+                <button class="claim-btn" onclick="showPlatformNotification('FireFaucet', 'RUB')">GANHE AQUI +50% BÔNUS</button>
             </div>
             
             <!-- Cointiply -->
@@ -321,7 +322,7 @@
                     <p>🎰 <strong>5,000 SATS grátis</strong> no cadastro</p>
                     <p>🕹️ Jogos que pagam em Bitcoin e Dogecoin</p>
                 </div>
-                <button class="claim-btn" onclick="showPlatformNotification('Cointiply')">JOGUE AGORA +1,000 SATS</button>
+                <button class="claim-btn" onclick="showPlatformNotification('Cointiply', 'BTC')">JOGUE AGORA +1,000 SATS</button>
             </div>
             
             <!-- SeoFast -->
@@ -337,7 +338,7 @@
                     <p>📈 <strong>Pagamentos em RUB</strong> via Payeer/Qiwi</p>
                     <p>💼 Diversas tarefas disponíveis</p>
                 </div>
-                <button class="claim-btn" onclick="showPlatformNotification('SeoFast')">COMEÇAR AGORA</button>
+                <button class="claim-btn" onclick="showPlatformNotification('SeoFast', 'RUB')">COMEÇAR AGORA</button>
             </div>
             
             <!-- Wmmail -->
@@ -353,7 +354,7 @@
                     <p>📧 <strong>Ganhe lendo emails</strong> | Mínimo: $0.50</p>
                     <p>🔄 Saques processados em 24h</p>
                 </div>
-                <button class="claim-btn" onclick="showPlatformNotification('Wmmail')">LER EMAILS</button>
+                <button class="claim-btn" onclick="showPlatformNotification('Wmmail', 'USD')">LER EMAILS</button>
             </div>
             
             <!-- SocialTools -->
@@ -369,7 +370,7 @@
                     <p>📱 <strong>Ganhe com redes sociais</strong></p>
                     <p>👍 Curtidas, seguidores e muito mais</p>
                 </div>
-                <button class="claim-btn" onclick="showPlatformNotification('SocialTools')">PARTICIPAR</button>
+                <button class="claim-btn" onclick="showPlatformNotification('SocialTools', 'BTC')">PARTICIPAR</button>
             </div>
             
             <!-- SeoSprint -->
@@ -385,7 +386,7 @@
                     <p>📊 <strong>Diversas tarefas simples</strong></p>
                     <p>⏱️ Ganhos rápidos</p>
                 </div>
-                <button class="claim-btn" onclick="showPlatformNotification('SeoSprint')">INICIAR TAREFAS</button>
+                <button class="claim-btn" onclick="showPlatformNotification('SeoSprint', 'RUB')">INICIAR TAREFAS</button>
             </div>
             
             <!-- ProfitCentr -->
@@ -401,7 +402,7 @@
                     <p>💰 <strong>Múltiplas formas de ganhar</strong></p>
                     <p>🌎 Disponível mundialmente</p>
                 </div>
-                <button class="claim-btn" onclick="showPlatformNotification('ProfitCentr')">ACESSAR PLATAFORMA</button>
+                <button class="claim-btn" onclick="showPlatformNotification('ProfitCentr', 'BTC')">ACESSAR PLATAFORMA</button>
             </div>
             
             <!-- Web-IP -->
@@ -417,7 +418,7 @@
                     <p>🌐 <strong>Ganhe navegando na web</strong></p>
                     <p>⏳ Acumule pontos automaticamente</p>
                 </div>
-                <button class="claim-btn" onclick="showPlatformNotification('Web-IP')">COMEÇAR A NAVEGAR</button>
+                <button class="claim-btn" onclick="showPlatformNotification('Web-IP', 'DOGE')">COMEÇAR A NAVEGAR</button>
             </div>
             
             <!-- IpGold -->
@@ -433,7 +434,7 @@
                     <p>🤖 <strong>Ganhos automáticos</strong></p>
                     <p>💳 Saques para PayPal e cripto</p>
                 </div>
-                <button class="claim-btn" onclick="showPlatformNotification('IpGold')">ATIVAR GANHOS</button>
+                <button class="claim-btn" onclick="showPlatformNotification('IpGold', 'USD')">ATIVAR GANHOS</button>
             </div>
             
             <!-- FreeBitco.in -->
@@ -449,7 +450,7 @@
                     <p>🎁 <strong>Gire a roda grátis</strong> a cada hora</p>
                     <p>🏆 Mais de 1 milhão de usuários</p>
                 </div>
-                <button class="claim-btn" onclick="showPlatformNotification('FreeBitco.in')">GIRAR RODA AGORA</button>
+                <button class="claim-btn" onclick="showPlatformNotification('FreeBitco.in', 'BTC')">GIRAR RODA AGORA</button>
             </div>
             
             <!-- ADBTC -->
@@ -465,7 +466,7 @@
                     <p>📌 <strong>Ganhe Bitcoin clicando</strong></p>
                     <p>⚡ Saques rápidos</p>
                 </div>
-                <button class="claim-btn" onclick="showPlatformNotification('ADBTC')">CLICAR PARA GANHAR</button>
+                <button class="claim-btn" onclick="showPlatformNotification('ADBTC', 'BTC')">CLICAR PARA GANHAR</button>
             </div>
         </div>
         
@@ -476,107 +477,122 @@
     </div>
 
     <script>
-        // Notificações estratégicas (aumentadas)
+        // Notificações padronizadas
         const notifications = [
             {
                 icon: "💸",
-                badge: "AGORA",
-                message: "<strong>@BitcoinKing</strong> sacou <span style='color:#FFD700'>1.042 DOGE</span> via FaucetPay!",
-                duration: 7000
-            },
-            {
-                icon: "⚡",
-                badge: "LIMITADO",
-                message: "Últimos <span style='color:#FFD700'>2 lugares</span> para bônus 3X!",
-                duration: 6000
-            },
-            {
-                icon: "🇷🇺",
-                badge: "RUSSO",
-                message: "<strong>150 RUB</strong> pagos nos últimos 15 minutos!",
-                duration: 5000
-            },
-            {
-                icon: "🎰",
-                badge: "BÔNUS",
-                message: "Rodada bônus ativa! <span style='color:#FFD700'>+1,000 SATS</span> para os próximos!",
-                duration: 8000
+                badge: "SAQUE",
+                platform: "FaucetPay",
+                currency: "DOGE",
+                amount: (Math.random() * 5 + 0.5).toFixed(3)
             },
             {
                 icon: "🔥",
                 badge: "RECORDE",
-                message: "<strong>5,200 saques</strong> processados hoje!",
-                duration: 6500
+                platform: "FireFaucet",
+                currency: "RUB",
+                amount: Math.floor(Math.random() * 5000 + 1000)
+            },
+            {
+                icon: "🎰",
+                badge: "BÔNUS",
+                platform: "Cointiply",
+                currency: "BTC",
+                amount: (Math.random() * 0.001 + 0.0005).toFixed(8).replace(/\.?0+$/, "")
+            },
+            {
+                icon: "📈",
+                badge: "PAGAMENTO",
+                platform: "SeoFast",
+                currency: "RUB",
+                amount: Math.floor(Math.random() * 3000 + 500)
+            },
+            {
+                icon: "📧",
+                badge: "EMAIL",
+                platform: "Wmmail",
+                currency: "USD",
+                amount: (Math.random() * 10 + 1).toFixed(2)
+            },
+            {
+                icon: "👍",
+                badge: "SOCIAL",
+                platform: "SocialTools",
+                currency: "BTC",
+                amount: (Math.random() * 0.002 + 0.0003).toFixed(8).replace(/\.?0+$/, "")
+            },
+            {
+                icon: "⚡",
+                badge: "TAREFA",
+                platform: "SeoSprint",
+                currency: "RUB",
+                amount: Math.floor(Math.random() * 2000 + 300)
+            },
+            {
+                icon: "🌎",
+                badge: "GLOBAL",
+                platform: "ProfitCentr",
+                currency: "BTC",
+                amount: (Math.random() * 0.003 + 0.0007).toFixed(8).replace(/\.?0+$/, "")
+            },
+            {
+                icon: "🌐",
+                badge: "NAVEGAÇÃO",
+                platform: "Web-IP",
+                currency: "DOGE",
+                amount: (Math.random() * 100 + 20).toFixed(2)
+            },
+            {
+                icon: "🤖",
+                badge: "AUTOMÁTICO",
+                platform: "IpGold",
+                currency: "USD",
+                amount: (Math.random() * 15 + 2).toFixed(2)
+            },
+            {
+                icon: "🎁",
+                badge: "PRÊMIO",
+                platform: "FreeBitco.in",
+                currency: "BTC",
+                amount: (Math.random() * 0.005 + 0.001).toFixed(8).replace(/\.?0+$/, "")
             },
             {
                 icon: "💰",
-                badge: "PROMOÇÃO",
-                message: "Depósito mínimo <span style='color:#FFD700'>50% menor</span> por tempo limitado!",
-                duration: 7500
+                badge: "CLIQUE",
+                platform: "ADBTC",
+                currency: "BTC",
+                amount: (Math.random() * 0.0005 + 0.0001).toFixed(8).replace(/\.?0+$/, "")
             }
         ];
         
+        // Gerar nome de usuário aleatório
+        function getRandomUsername() {
+            const prefixes = ["Crypto", "Bitcoin", "Doge", "Trader", "Investor", "Miner", "HODL", "Blockchain"];
+            const suffixes = ["King", "Master", "Pro", "Expert", "Guru", "Whale", "Hunter", "Lover"];
+            return "@" + prefixes[Math.floor(Math.random() * prefixes.length)] + 
+                   suffixes[Math.floor(Math.random() * suffixes.length)] + 
+                   Math.floor(Math.random() * 100);
+        }
+        
         // Mostrar notificação da plataforma
-        function showPlatformNotification(platform) {
-            let message, icon;
-            switch(platform) {
-                case 'FaucetPay':
-                    message = `🔥 <strong>Oferta especial!</strong> Ganhe 100 SATS extras no ${platform} hoje!`;
-                    icon = "💸";
-                    break;
-                case 'FireFaucet':
-                    message = `⚡ <strong>Bônus 2X</strong> ativo agora no ${platform}!`;
-                    icon = "🔥";
-                    break;
-                case 'Cointiply':
-                    message = `🎰 <strong>Novo jogo lançado</strong> no ${platform} com prêmios em Bitcoin!`;
-                    icon = "🎮";
-                    break;
-                case 'SeoFast':
-                    message = `📈 <strong>Tarefas russas</strong> pagando 20% mais no ${platform}!`;
-                    icon = "🇷🇺";
-                    break;
-                case 'Wmmail':
-                    message = `📧 <strong>Novos emails premium</strong> disponíveis no ${platform}!`;
-                    icon = "✉️";
-                    break;
-                case 'SocialTools':
-                    message = `👍 <strong>Campanhas sociais</strong> com pagamento instantâneo no ${platform}!`;
-                    icon = "📱";
-                    break;
-                case 'SeoSprint':
-                    message = `⚡ <strong>Tarefas rápidas</strong> com recompensas dobradas no ${platform}!`;
-                    icon = "⏱️";
-                    break;
-                case 'ProfitCentr':
-                    message = `🌎 <strong>Oportunidades globais</strong> disponíveis no ${platform}!`;
-                    icon = "💰";
-                    break;
-                case 'Web-IP':
-                    message = `🌐 <strong>Navegação premiada</strong> rendendo 2X no ${platform}!`;
-                    icon = "🖥️";
-                    break;
-                case 'IpGold':
-                    message = `🤖 <strong>Ganhos automáticos</strong> configurados no ${platform}!`;
-                    icon = "⚙️";
-                    break;
-                case 'FreeBitco.in':
-                    message = `🎁 <strong>Roda da fortuna</strong> com prêmios maiores no ${platform}!`;
-                    icon = "🏆";
-                    break;
-                case 'ADBTC':
-                    message = `📌 <strong>Cliques premium</strong> pagando mais no ${platform}!`;
-                    icon = "💰";
-                    break;
-                default:
-                    message = `🎉 <strong>Nova oportunidade</strong> disponível no ${platform}!`;
-                    icon = "🔔";
+        function showPlatformNotification(platform, currency) {
+            const username = getRandomUsername();
+            let amount;
+            
+            if (currency === "BTC") {
+                amount = (Math.random() * 0.005 + 0.0001).toFixed(8).replace(/\.?0+$/, "");
+            } else if (currency === "DOGE") {
+                amount = (Math.random() * 100 + 10).toFixed(2);
+            } else if (currency === "RUB") {
+                amount = Math.floor(Math.random() * 5000 + 1000);
+            } else { // USD
+                amount = (Math.random() * 15 + 1).toFixed(2);
             }
             
             showNotification({
-                icon: icon,
-                badge: "PLATAFORMA",
-                message: message,
+                icon: "💸",
+                badge: "SAQUE",
+                message: `<strong>${username}</strong> sacou <span style='color:#FFD700'>${amount} ${currency}</span> via ${platform}!`,
                 duration: 6000
             });
         }
@@ -619,7 +635,16 @@
         // Rotação automática de notificações
         let currentNotif = 0;
         function rotateNotifications() {
-            showNotification(notifications[currentNotif]);
+            const notif = notifications[currentNotif];
+            const username = getRandomUsername();
+            
+            showNotification({
+                icon: notif.icon,
+                badge: notif.badge,
+                message: `<strong>${username}</strong> sacou <span style='color:#FFD700'>${notif.amount} ${notif.currency}</span> via ${notif.platform}!`,
+                duration: 7000
+            });
+            
             currentNotif = (currentNotif + 1) % notifications.length;
             setTimeout(rotateNotifications, 10000); // A cada 10 segundos
         }
