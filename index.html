@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Melhores Faucets de Cripto</title>
+    <style>
+        /* Container principal */
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: #f5f5f5;
+            color: #333;
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        /* Notificação */
+        .notification {
+            background: linear-gradient(135deg, #6E45E2 0%, #FF9500 100%);
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 15px 0;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            display: flex;
+            align-items: center;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.5s ease;
+        }
+        
+        .notification.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .notification-icon {
+            font-size: 24px;
+            margin-right: 15px;
+        }
+        
+        /* Lista TOP */
+        .platform-card {
+            background: white;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 15px 0;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        
+        .platform-name {
+            font-weight: bold;
+            color: #1e3c72;
+            font-size: 18px;
+        }
+        
+        .platform-badge {
+            background: #FF5722;
+            color: white;
+            padding: 3px 8px;
+            border-radius: 20px;
+            font-size: 12px;
+            margin-left: 10px;
+        }
+        
+        .claim-btn {
+            background: linear-gradient(90deg, #FF9500, #FF5E00);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 8px;
+            font-weight: bold;
+            margin-top: 10px;
+            cursor: pointer;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <h1>🏆 TOP Plataformas para Ganhar Cripto</h1>
+    
+    <!-- Notificação Ativa -->
+    <div id="notificationContainer"></div>
+    
+    <!-- Lista de Plataformas -->
+    <div class="platform-card">
+        <div class="platform-name">1. FaucetPay <span class="platform-badge">MAIS POPULAR</span></div>
+        <p>💰 <strong>3.182 saques hoje</strong> | Mínimo: 50 DOGE</p>
+        <button class="claim-btn" onclick="showPlatformNotification('FaucetPay')">SAQUE AGORA</button>
+    </div>
+    
+    <div class="platform-card">
+        <div class="platform-name">2. FireFaucet <span class="platform-badge">BÔNUS 2X</span></div>
+        <p>🔥 <strong>1.200 usuários online</strong> | Pagamento em RUB</p>
+        <button class="claim-btn" onclick="showPlatformNotification('FireFaucet')">GANHE AQUI</button>
+    </div>
+    
+    <div class="platform-card">
+        <div class="platform-name">3. Cointiply <span class="platform-badge">JOGOS</span></div>
+        <p>🎰 <strong>5.000 SATS grátis</strong> | Bônus diário</p>
+        <button class="claim-btn" onclick="showPlatformNotification('Cointiply')">JOGUE AGORA</button>
+    </div>
+
+    <script>
+        // Notificações estratégicas (em inglês nos códigos)
+        const notifications = [
+            {
+                icon: "💸",
+                badge: "AGORA",
+                message: "User <strong>@CryptoPro</strong> claimed <span style='color:#FFD700'>500 DOGE</span> via FaucetPay!",
+                duration: 7000
+            },
+            {
+                icon: "⚡",
+                badge: "RÁPIDO",
+                message: "Next <span style='color:#FFD700'>5 users</span> get 2X rewards!",
+                duration: 6000
+            },
+            {
+                icon: "🇷🇺",
+                badge: "RUSSO",
+                message: "<strong>89 RUB payouts</strong> in last hour!",
+                duration: 5000
+            }
+        ];
+        
+        // Mostrar notificação da plataforma
+        function showPlatformNotification(platform) {
+            let message;
+            switch(platform) {
+                case 'FaucetPay':
+                    message = `🔥 <strong>Special offer!</strong> Earn 100 extra SATS on ${platform} today!`;
+                    break;
+                case 'FireFaucet':
+                    message = `⚡ <strong>2X bonuses</strong> active now on ${platform}!`;
+                    break;
+                default:
+                    message = `🎰 <strong>New game released</strong> on ${platform}!`;
+            }
+            
+            showNotification({
+                icon: "💰",
+                badge: "DICA",
+                message: message,
+                duration: 5000
+            });
+        }
+        
+        // Sistema de notificações
+        function showNotification(notif) {
+            const container = document.getElementById('notificationContainer');
+            container.innerHTML = `
+                <div class="notification">
+                    <div class="notification-icon">${notif.icon}</div>
+                    <div>
+                        <span style="background:rgba(255,255,255,0.3); padding:2px 8px; border-radius:10px; font-size:12px;">
+                            ${notif.badge}
+                        </span>
+                        <p>${notif.message}</p>
+                    </div>
+                </div>
+            `;
+            
+            // Ativar animação
+            setTimeout(() => {
+                container.querySelector('.notification').classList.add('active');
+            }, 100);
+            
+            // Remover após duração
+            setTimeout(() => {
+                container.querySelector('.notification').classList.remove('active');
+            }, notif.duration);
+        }
+        
+        // Rotação automática
+        let currentNotif = 0;
+        function rotateNotifications() {
+            showNotification(notifications[currentNotif]);
+            currentNotif = (currentNotif + 1) % notifications.length;
+            setTimeout(rotateNotifications, 10000); // A cada 10 segundos
+        }
+        
+        // Iniciar
+        setTimeout(rotateNotifications, 3000); // Primeira após 3 segundos
+    </script>
+</body>
+</html>
