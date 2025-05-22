@@ -277,21 +277,203 @@
 </head>
 <body>
     <div class="container">
-        <!-- Conteúdo existente -->
         <header>
             <h1>🏆 TOP PLATFORMS TO EARN CRYPTO</h1>
             <p>Instant withdrawals • Exclusive bonuses • Community rated</p>
         </header>
 
+        <!-- Ad Space -->
         <div class="ad-space">
             <p>Ad space (Kadam, Propeller Ads, Adsterra)</p>
         </div>
 
+        <!-- Dynamic Notifications -->
         <div class="notification-container top" id="notificationContainerTop"></div>
         <div class="notification-container bottom" id="notificationContainerBottom"></div>
 
-        <!-- Lista de plataformas -->
-        <!-- [Seu conteúdo das plataformas aqui] -->
+        <!-- Platforms List -->
+        <div class="platforms-list">
+            <!-- FaucetPay -->
+            <div class="platform-card">
+                <div class="platform-header">
+                    <div>
+                        <span class="platform-name">1. FaucetPay</span>
+                        <span class="platform-badge">MOST POPULAR</span>
+                    </div>
+                    <div class="platform-rating">4.9 <span class="stars">★★★★★</span></div>
+                </div>
+                <div class="platform-details">
+                    <p>💰 <strong>5,342 withdrawals today</strong> | Minimum: 50 DOGE</p>
+                    <p>⚡ Instant payments in 10+ cryptocurrencies</p>
+                </div>
+                <button class="claim-btn" onclick="showPlatformNotification('FaucetPay', 'DOGE')">WITHDRAW NOW +100 BONUS</button>
+            </div>
+            <!-- FireFaucet -->
+            <div class="platform-card">
+                <div class="platform-header">
+                    <div>
+                        <span class="platform-name">2. FireFaucet</span>
+                        <span class="platform-badge">2X BONUS</span>
+                    </div>
+                    <div class="platform-rating">4.7 <span class="stars">★★★★★</span></div>
+                </div>
+                <div class="platform-details">
+                    <p>🔥 <strong>2,100 users online</strong> | Payments in RUB</p>
+                    <p>🎮 Exclusive games with crypto rewards</p>
+                </div>
+                <button class="claim-btn" onclick="showPlatformNotification('FireFaucet', 'RUB')">EARN HERE +50% BONUS</button>
+            </div>
+            <!-- Cointiply -->
+            <div class="platform-card">
+                <div class="platform-header">
+                    <div>
+                        <span class="platform-name">3. Cointiply</span>
+                        <span class="platform-badge">GAMES</span>
+                    </div>
+                    <div class="platform-rating">4.8 <span class="stars">★★★★★</span></div>
+                </div>
+                <div class="platform-details">
+                    <p>🎰 <strong>5,000 free SATS</strong> on registration</p>
+                    <p>🕹️ Games that pay in Bitcoin and Dogecoin</p>
+                </div>
+                <button class="claim-btn" onclick="showPlatformNotification('Cointiply', 'BTC')">PLAY NOW +1,000 SATS</button>
+            </div>
+            <!-- SeoFast -->
+            <div class="platform-card">
+                <div class="platform-header">
+                    <div>
+                        <span class="platform-name">4. SeoFast</span>
+                        <span class="platform-badge">RUSSIAN</span>
+                    </div>
+                    <div class="platform-rating">4.5 <span class="stars">★★★★☆</span></div>
+                </div>
+                <div class="platform-details">
+                    <p>📈 <strong>Payments in RUB</strong> via Payeer/Qiwi</p>
+                    <p>💼 Various tasks available</p>
+                </div>
+                <button class="claim-btn" onclick="showPlatformNotification('SeoFast', 'RUB')">START NOW</button>
+            </div>
+            <!-- Wmmail -->
+            <div class="platform-card">
+                <div class="platform-header">
+                    <div>
+                        <span class="platform-name">5. Wmmail</span>
+                        <span class="platform-badge">PTC</span>
+                    </div>
+                    <div class="platform-rating">4.3 <span class="stars">★★★★☆</span></div>
+                </div>
+                <div class="platform-details">
+                    <p>📧 <strong>Earn by reading emails</strong> | Minimum: $0.50</p>
+                    <p>🔄 Withdrawals processed in 24h</p>
+                </div>
+                <button class="claim-btn" onclick="showPlatformNotification('Wmmail', 'USD')">READ EMAILS</button>
+            </div>
+            <!-- SocialTools -->
+            <div class="platform-card">
+                <div class="platform-header">
+                    <div>
+                        <span class="platform-name">6. SocialTools</span>
+                        <span class="platform-badge">SOCIAL</span>
+                    </div>
+                    <div class="platform-rating">4.4 <span class="stars">★★★★☆</span></div>
+                </div>
+                <div class="platform-details">
+                    <p>📱 <strong>Earn with social media</strong></p>
+                    <p>👍 Likes, followers and more</p>
+                </div>
+                <button class="claim-btn" onclick="showPlatformNotification('SocialTools', 'BTC')">JOIN NOW</button>
+            </div>
+            <!-- SeoSprint -->
+            <div class="platform-card">
+                <div class="platform-header">
+                    <div>
+                        <span class="platform-name">7. SeoSprint</span>
+                        <span class="platform-badge">TASKS</span>
+                    </div>
+                    <div class="platform-rating">4.2 <span class="stars">★★★★☆</span></div>
+                </div>
+                <div class="platform-details">
+                    <p>📊 <strong>Various simple tasks</strong></p>
+                    <p>⏱️ Quick earnings</p>
+                </div>
+                <button class="claim-btn" onclick="showPlatformNotification('SeoSprint', 'RUB')">START TASKS</button>
+            </div>
+            <!-- ProfitCentr -->
+            <div class="platform-card">
+                <div class="platform-header">
+                    <div>
+                        <span class="platform-name">8. ProfitCentr</span>
+                        <span class="platform-badge">MULTI</span>
+                    </div>
+                    <div class="platform-rating">4.6 <span class="stars">★★★★★</span></div>
+                </div>
+                <div class="platform-details">
+                    <p>💰 <strong>Multiple earning methods</strong></p>
+                    <p>🌎 Available worldwide</p>
+                </div>
+                <button class="claim-btn" onclick="showPlatformNotification('ProfitCentr', 'BTC')">ACCESS PLATFORM</button>
+            </div>
+            <!-- Web-IP -->
+            <div class="platform-card">
+                <div class="platform-header">
+                    <div>
+                        <span class="platform-name">9. Web-IP</span>
+                        <span class="platform-badge">SURF</span>
+                    </div>
+                    <div class="platform-rating">4.0 <span class="stars">★★★★☆</span></div>
+                </div>
+                <div class="platform-details">
+                    <p>🌐 <strong>Earn by browsing</strong></p>
+                    <p>⏳ Accumulate points automatically</p>
+                </div>
+                <button class="claim-btn" onclick="showPlatformNotification('Web-IP', 'DOGE')">START BROWSING</button>
+            </div>
+            <!-- IpGold -->
+            <div class="platform-card">
+                <div class="platform-header">
+                    <div>
+                        <span class="platform-name">10. IpGold</span>
+                        <span class="platform-badge">AUTOMATIC</span>
+                    </div>
+                    <div class="platform-rating">4.1 <span class="stars">★★★★☆</span></div>
+                </div>
+                <div class="platform-details">
+                    <p>🤖 <strong>Automatic earnings</strong></p>
+                    <p>💳 Withdrawals to PayPal and crypto</p>
+                </div>
+                <button class="claim-btn" onclick="showPlatformNotification('IpGold', 'USD')">ACTIVATE EARNINGS</button>
+            </div>
+            <!-- FreeBitco.in -->
+            <div class="platform-card">
+                <div class="platform-header">
+                    <div>
+                        <span class="platform-name">11. FreeBitco.in</span>
+                        <span class="platform-badge">LEGENDARY</span>
+                    </div>
+                    <div class="platform-rating">4.9 <span class="stars">★★★★★</span></div>
+                </div>
+                <div class="platform-details">
+                    <p>🎁 <strong>Spin free wheel</strong> every hour</p>
+                    <p>🏆 Over 1 million users</p>
+                </div>
+                <button class="claim-btn" onclick="showPlatformNotification('FreeBitco.in', 'BTC')">SPIN WHEEL NOW</button>
+            </div>
+            <!-- ADBTC -->
+            <div class="platform-card">
+                <div class="platform-header">
+                    <div>
+                        <span class="platform-name">12. ADBTC</span>
+                        <span class="platform-badge">PTC</span>
+                    </div>
+                    <div class="platform-rating">4.3 <span class="stars">★★★★☆</span></div>
+                </div>
+                <div class="platform-details">
+                    <p>📌 <strong>Earn Bitcoin by clicking</strong></p>
+                    <p>⚡ Fast withdrawals</p>
+                </div>
+                <button class="claim-btn" onclick="showPlatformNotification('ADBTC', 'BTC')">CLICK TO EARN</button>
+            </div>
+        </div>
 
         <!-- Ad Space at bottom -->
         <div class="ad-space">
