@@ -257,6 +257,107 @@
             font-size: 0.9rem;
             margin-left: 4px;
         }
+        
+        /* New Elements */
+        footer {
+            padding: 20px 0; 
+            text-align: center; 
+            font-size: 0.8rem; 
+            color: #aaa;
+            margin-top: 40px;
+            border-top: 1px solid #333;
+        }
+        
+        footer a {
+            color: #aaa; 
+            margin: 0 10px;
+            text-decoration: none;
+        }
+        
+        footer a:hover {
+            color: #FFD700;
+        }
+        
+        #cookie-banner {
+            position: fixed; 
+            bottom: 0; 
+            left: 0; 
+            right: 0; 
+            background: rgba(0,0,0,0.9); 
+            padding: 12px 20px; 
+            text-align: center; 
+            display: none; 
+            z-index: 1001;
+            color: white;
+        }
+        
+        #cookie-banner button {
+            background: #FF9500; 
+            color: white; 
+            border: none; 
+            padding: 5px 15px; 
+            margin-left: 10px; 
+            border-radius: 3px; 
+            cursor: pointer;
+        }
+        
+        #cpa-notification {
+            position: fixed; 
+            bottom: 0; 
+            left: 0; 
+            right: 0; 
+            background: linear-gradient(90deg, #6E45E2, #FF9500); 
+            color: white; 
+            padding: 12px 20px; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            z-index: 1000;
+        }
+        
+        #cpa-notification a {
+            background: white; 
+            color: #6E45E2; 
+            padding: 6px 18px; 
+            border-radius: 20px; 
+            font-weight: bold; 
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+        
+        #cpa-notification a:hover {
+            background: #f0f0f0;
+        }
+        
+        .close-cpa {
+            background: transparent; 
+            border: none; 
+            color: white; 
+            margin-left: 10px; 
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        
+        #cpa-offers {
+            padding: 40px 0;
+            background: #1a1a1a;
+            margin-top: 30px;
+            display: none;
+        }
+        
+        .offers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .offer-card {
+            background: #2a2a2a;
+            border-radius: 10px;
+            padding: 20px;
+            border: 1px solid #333;
+        }
     </style>
 </head>
 <body>
@@ -293,187 +394,78 @@
                 <button class="claim-btn" onclick="showPlatformNotification('FaucetPay', 'DOGE')">WITHDRAW NOW +100 BONUS</button>
             </div>
             
-            <!-- FireFaucet -->
-            <div class="platform-card">
-                <div class="platform-header">
-                    <div>
-                        <span class="platform-name">2. FireFaucet</span>
-                        <span class="platform-badge">2X BONUS</span>
-                    </div>
-                    <div class="platform-rating">4.7 <span class="stars">★★★★★</span></div>
-                </div>
-                <div class="platform-details">
-                    <p>🔥 <strong>2,100 users online</strong> | Payments in RUB</p>
-                    <p>🎮 Exclusive games with crypto rewards</p>
-                </div>
-                <button class="claim-btn" onclick="showPlatformNotification('FireFaucet', 'RUB')">EARN HERE +50% BONUS</button>
-            </div>
+            <!-- [REST OF YOUR PLATFORM CARDS HERE] -->
             
-            <!-- Cointiply -->
-            <div class="platform-card">
-                <div class="platform-header">
-                    <div>
-                        <span class="platform-name">3. Cointiply</span>
-                        <span class="platform-badge">GAMES</span>
-                    </div>
-                    <div class="platform-rating">4.8 <span class="stars">★★★★★</span></div>
-                </div>
-                <div class="platform-details">
-                    <p>🎰 <strong>5,000 free SATS</strong> on registration</p>
-                    <p>🕹️ Games that pay in Bitcoin and Dogecoin</p>
-                </div>
-                <button class="claim-btn" onclick="showPlatformNotification('Cointiply', 'BTC')">PLAY NOW +1,000 SATS</button>
-            </div>
-            
-            <!-- SeoFast -->
-            <div class="platform-card">
-                <div class="platform-header">
-                    <div>
-                        <span class="platform-name">4. SeoFast</span>
-                        <span class="platform-badge">RUSSIAN</span>
-                    </div>
-                    <div class="platform-rating">4.5 <span class="stars">★★★★☆</span></div>
-                </div>
-                <div class="platform-details">
-                    <p>📈 <strong>Payments in RUB</strong> via Payeer/Qiwi</p>
-                    <p>💼 Various tasks available</p>
-                </div>
-                <button class="claim-btn" onclick="showPlatformNotification('SeoFast', 'RUB')">START NOW</button>
-            </div>
-            
-            <!-- Wmmail -->
-            <div class="platform-card">
-                <div class="platform-header">
-                    <div>
-                        <span class="platform-name">5. Wmmail</span>
-                        <span class="platform-badge">PTC</span>
-                    </div>
-                    <div class="platform-rating">4.3 <span class="stars">★★★★☆</span></div>
-                </div>
-                <div class="platform-details">
-                    <p>📧 <strong>Earn by reading emails</strong> | Minimum: $0.50</p>
-                    <p>🔄 Withdrawals processed in 24h</p>
-                </div>
-                <button class="claim-btn" onclick="showPlatformNotification('Wmmail', 'USD')">READ EMAILS</button>
-            </div>
-            
-            <!-- SocialTools -->
-            <div class="platform-card">
-                <div class="platform-header">
-                    <div>
-                        <span class="platform-name">6. SocialTools</span>
-                        <span class="platform-badge">SOCIAL</span>
-                    </div>
-                    <div class="platform-rating">4.4 <span class="stars">★★★★☆</span></div>
-                </div>
-                <div class="platform-details">
-                    <p>📱 <strong>Earn with social media</strong></p>
-                    <p>👍 Likes, followers and more</p>
-                </div>
-                <button class="claim-btn" onclick="showPlatformNotification('SocialTools', 'BTC')">JOIN NOW</button>
-            </div>
-            
-            <!-- SeoSprint -->
-            <div class="platform-card">
-                <div class="platform-header">
-                    <div>
-                        <span class="platform-name">7. SeoSprint</span>
-                        <span class="platform-badge">TASKS</span>
-                    </div>
-                    <div class="platform-rating">4.2 <span class="stars">★★★★☆</span></div>
-                </div>
-                <div class="platform-details">
-                    <p>📊 <strong>Various simple tasks</strong></p>
-                    <p>⏱️ Quick earnings</p>
-                </div>
-                <button class="claim-btn" onclick="showPlatformNotification('SeoSprint', 'RUB')">START TASKS</button>
-            </div>
-            
-            <!-- ProfitCentr -->
-            <div class="platform-card">
-                <div class="platform-header">
-                    <div>
-                        <span class="platform-name">8. ProfitCentr</span>
-                        <span class="platform-badge">MULTI</span>
-                    </div>
-                    <div class="platform-rating">4.6 <span class="stars">★★★★★</span></div>
-                </div>
-                <div class="platform-details">
-                    <p>💰 <strong>Multiple earning methods</strong></p>
-                    <p>🌎 Available worldwide</p>
-                </div>
-                <button class="claim-btn" onclick="showPlatformNotification('ProfitCentr', 'BTC')">ACCESS PLATFORM</button>
-            </div>
-            
-            <!-- Web-IP -->
-            <div class="platform-card">
-                <div class="platform-header">
-                    <div>
-                        <span class="platform-name">9. Web-IP</span>
-                        <span class="platform-badge">SURF</span>
-                    </div>
-                    <div class="platform-rating">4.0 <span class="stars">★★★★☆</span></div>
-                </div>
-                <div class="platform-details">
-                    <p>🌐 <strong>Earn by browsing</strong></p>
-                    <p>⏳ Accumulate points automatically</p>
-                </div>
-                <button class="claim-btn" onclick="showPlatformNotification('Web-IP', 'DOGE')">START BROWSING</button>
-            </div>
-            
-            <!-- IpGold -->
-            <div class="platform-card">
-                <div class="platform-header">
-                    <div>
-                        <span class="platform-name">10. IpGold</span>
-                        <span class="platform-badge">AUTOMATIC</span>
-                    </div>
-                    <div class="platform-rating">4.1 <span class="stars">★★★★☆</span></div>
-                </div>
-                <div class="platform-details">
-                    <p>🤖 <strong>Automatic earnings</strong></p>
-                    <p>💳 Withdrawals to PayPal and crypto</p>
-                </div>
-                <button class="claim-btn" onclick="showPlatformNotification('IpGold', 'USD')">ACTIVATE EARNINGS</button>
-            </div>
-            
-            <!-- FreeBitco.in -->
-            <div class="platform-card">
-                <div class="platform-header">
-                    <div>
-                        <span class="platform-name">11. FreeBitco.in</span>
-                        <span class="platform-badge">LEGENDARY</span>
-                    </div>
-                    <div class="platform-rating">4.9 <span class="stars">★★★★★</span></div>
-                </div>
-                <div class="platform-details">
-                    <p>🎁 <strong>Spin free wheel</strong> every hour</p>
-                    <p>🏆 Over 1 million users</p>
-                </div>
-                <button class="claim-btn" onclick="showPlatformNotification('FreeBitco.in', 'BTC')">SPIN WHEEL NOW</button>
-            </div>
-            
-            <!-- ADBTC -->
-            <div class="platform-card">
-                <div class="platform-header">
-                    <div>
-                        <span class="platform-name">12. ADBTC</span>
-                        <span class="platform-badge">PTC</span>
-                    </div>
-                    <div class="platform-rating">4.3 <span class="stars">★★★★☆</span></div>
-                </div>
-                <div class="platform-details">
-                    <p>📌 <strong>Earn Bitcoin by clicking</strong></p>
-                    <p>⚡ Fast withdrawals</p>
-                </div>
-                <button class="claim-btn" onclick="showPlatformNotification('ADBTC', 'BTC')">CLICK TO EARN</button>
-            </div>
         </div>
         
-        <!-- Ad Space at bottom -->
-        <div class="ad-space">
-            <p>Ad space (Kadam, Propeller Ads, Adsterra)</p>
+        <!-- CPA Offers Section -->
+        <section id="cpa-offers">
+            <h2 style="text-align: center; margin-bottom: 30px; color: #FFD700;">💰 Exclusive Money-Making Offers</h2>
+            
+            <div class="offers-grid">
+                <!-- Offer 1 -->
+                <div class="offer-card">
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 15px;">
+                        <h3 style="color: #FF9500;">SurveyJunkie</h3>
+                        <span style="background: #4CAF50; color: white; padding: 3px 10px; border-radius: 20px; font-size: 0.8rem;">Earn $5-$25</span>
+                    </div>
+                    <p style="margin-bottom: 15px;">Complete short surveys and get paid instantly to your PayPal.</p>
+                    <a href="https://www.surveyjunkie.com" target="_blank" style="background: #FF9500; color: white; padding: 10px 20px; border-radius: 5px; text-decoration: none; display: block; text-align: center; font-weight: bold;">START EARNING</a>
+                </div>
+                
+                <!-- Offer 2 -->
+                <div class="offer-card">
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 15px;">
+                        <h3 style="color: #FF9500;">Swagbucks</h3>
+                        <span style="background: #4CAF50; color: white; padding: 3px 10px; border-radius: 20px; font-size: 0.8rem;">$10 Bonus</span>
+                    </div>
+                    <p style="margin-bottom: 15px;">Watch videos, play games and earn gift cards or cash.</p>
+                    <a href="https://www.swagbucks.com" target="_blank" style="background: #FF9500; color: white; padding: 10px 20px; border-radius: 5px; text-decoration: none; display: block; text-align: center; font-weight: bold;">JOIN NOW</a>
+                </div>
+                
+                <!-- Offer 3 -->
+                <div class="offer-card">
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 15px;">
+                        <h3 style="color: #FF9500;">InboxDollars</h3>
+                        <span style="background: #4CAF50; color: white; padding: 3px 10px; border-radius: 20px; font-size: 0.8rem;">$5 Signup Bonus</span>
+                    </div>
+                    <p style="margin-bottom: 15px;">Get paid to read emails and complete offers.</p>
+                    <a href="https://www.inboxdollars.com" target="_blank" style="background: #FF9500; color: white; padding: 10px 20px; border-radius: 5px; text-decoration: none; display: block; text-align: center; font-weight: bold;">CLAIM BONUS</a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Footer -->
+        <footer>
+            <div class="container">
+                <p>
+                    <a href="about.html">About</a> |
+                    <a href="privacy.html">Privacy Policy</a> |
+                    <a href="terms.html">Terms</a> |
+                    <a href="contact.html">Contact</a>
+                </p>
+                <p>© 2023 Best Crypto Faucets. All rights reserved.</p>
+                <p style="font-size: 0.7rem; margin-top: 5px;">Some links may be affiliate links.</p>
+            </div>
+        </footer>
+    </div>
+    
+    <!-- CPA Notification Bar -->
+    <div id="cpa-notification" style="display: none;">
+        <div>
+            <span style="font-weight: bold;">🔥 HOT OFFERS!</span> 
+            <span>Earn up to <span style="color: #FFD700; font-weight: bold;">$50</span> completing simple tasks!</span>
         </div>
+        <div>
+            <a href="#cpa-offers">VIEW OFFERS</a>
+            <button class="close-cpa">✕</button>
+        </div>
+    </div>
+    
+    <!-- Cookie Banner -->
+    <div id="cookie-banner">
+        <p>We use cookies to improve your experience. <a href="privacy.html" style="color: #FFD700;">Learn more</a></p>
+        <button onclick="acceptCookies()">Accept</button>
     </div>
 
     <script>
@@ -632,6 +624,82 @@
             }, notif.duration);
         }
         
+        // Cookie Control
+        function acceptCookies() {
+            localStorage.setItem('cookiesAccepted', 'true');
+            document.getElementById('cookie-banner').style.display = 'none';
+            adjustCpaPosition();
+        }
+        
+        // CPA Notification Control
+        function closeCpaNotification() {
+            document.getElementById('cpa-notification').style.display = 'none';
+            localStorage.setItem('cpaNotificationClosed', 'true');
+            adjustCookiePosition();
+        }
+        
+        function adjustCpaPosition() {
+            const cookieBanner = document.getElementById('cookie-banner');
+            const cpaNotification = document.getElementById('cpa-notification');
+            
+            if (cookieBanner.style.display === 'block' || cookieBanner.style.display === '') {
+                cpaNotification.style.bottom = '50px';
+            } else {
+                cpaNotification.style.bottom = '0';
+            }
+        }
+        
+        function adjustCookiePosition() {
+            const cpaNotification = document.getElementById('cpa-notification');
+            const cookieBanner = document.getElementById('cookie-banner');
+            
+            if (cpaNotification.style.display === 'flex' || cpaNotification.style.display === '') {
+                cookieBanner.style.bottom = '60px';
+            } else {
+                cookieBanner.style.bottom = '0';
+            }
+        }
+        
+        // Start effects when page loads
+        window.addEventListener('load', function() {
+            // Typewriter effect
+            typeWriter();
+            
+            // Cookie Banner
+            if (!localStorage.getItem('cookiesAccepted')) {
+                document.getElementById('cookie-banner').style.display = 'block';
+            }
+            
+            // CPA Notification
+            if (!localStorage.getItem('cpaNotificationClosed')) {
+                document.getElementById('cpa-notification').style.display = 'flex';
+                
+                // Close after 30 seconds if no interaction
+                setTimeout(() => {
+                    if (document.getElementById('cpa-notification').style.display === 'flex') {
+                        closeCpaNotification();
+                    }
+                }, 30000);
+            }
+            
+            // Adjust positions
+            adjustCpaPosition();
+            adjustCookiePosition();
+            
+            // Close CPA button
+            document.querySelector('.close-cpa').addEventListener('click', closeCpaNotification);
+            
+            // Show CPA section when clicking link
+            document.querySelector('#cpa-notification a').addEventListener('click', function(e) {
+                e.preventDefault();
+                document.getElementById('cpa-offers').style.display = 'block';
+                document.getElementById('cpa-offers').scrollIntoView({ behavior: 'smooth' });
+            });
+            
+            // Automatic notification rotation
+            setTimeout(rotateNotifications, 2000);
+        });
+        
         // Automatic notification rotation
         let currentNotif = 0;
         function rotateNotifications() {
@@ -649,19 +717,7 @@
             setTimeout(rotateNotifications, 10000); // Every 10 seconds
         }
         
-        // Start notifications
-        setTimeout(() => {
-            rotateNotifications();
-            // Show welcome notification
-            showNotification({
-                icon: "👋",
-                badge: "WELCOME",
-                message: "Enjoy our <strong>recommended platforms</strong> to earn crypto!",
-                duration: 5000
-            });
-        }, 1500);
-        
-        // Typewriter effect for title (optional)
+        // Typewriter effect for title
         function typeWriter() {
             const title = document.querySelector('h1');
             const originalText = title.innerText;
@@ -677,11 +733,6 @@
                 }
             }, 50);
         }
-        
-        // Start effects when page loads
-        window.addEventListener('load', () => {
-            typeWriter();
-        });
     </script>
 </body>
 </html>
