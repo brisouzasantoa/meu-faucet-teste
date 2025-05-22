@@ -5,22 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Best Crypto Faucets | Earn Money Online</title>
     <style>
-        /* Global Styles */
+        /* Variáveis */
         :root {
             --primary: #FF9500;
             --secondary: #6E45E2;
             --dark: #121212;
             --darker: #0A0A0A;
             --accent: #FFD700;
-            --success: #4CAF50;
-            --danger: #FF5722;
             --text: #F5F5F5;
         }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
+
         body {
             font-family: 'Segoe UI', Arial, sans-serif;
             background: linear-gradient(135deg, var(--darker), var(--dark));
@@ -28,6 +28,7 @@
             padding: 20px;
             min-height: 100vh;
         }
+
         .container {
             max-width: 800px;
             margin: 0 auto;
@@ -68,7 +69,7 @@
             font-size: 0.9rem;
         }
 
-        /* Notification containers */
+        /* Notificações principais */
         .notification-container {
             position: fixed;
             width: 300px;
@@ -134,20 +135,31 @@
             margin-bottom: 3px;
         }
 
-        /* Side Notification - Lateral Esquerda */
+        /* Notificação Lateral Esquerda */
         .side-notification {
             position: fixed;
             left: 20px;
             top: 100px;
             width: 300px;
-            z-index: 1000;
+            z-index: 9999;
+            opacity: 0;
+            transform: translateX(-100%);
+            transition: all 0.6s ease;
+        }
+
+        .side-notification.show {
+            opacity: 1;
+            transform: translateX(0);
         }
 
         .side-notification .notification {
-            background: rgba(255, 255, 255, 0.05);
+            background: rgba(255,255,255,0.05);
             border: 1px solid rgba(255,255,255,0.1);
             text-align: center;
             padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.4);
+            font-size: 0.95rem;
         }
 
         .side-notification strong {
@@ -155,7 +167,7 @@
         }
 
         .side-notification button {
-            margin-top: 15px;
+            margin-top: 10px;
             background: linear-gradient(90deg, var(--primary), var(--danger));
             color: white;
             border: none;
@@ -163,9 +175,8 @@
             border-radius: 6px;
             cursor: pointer;
             font-weight: bold;
-            transition: all 0.3s ease;
             width: 100%;
-            font-size: 0.9rem;
+            transition: all 0.3s ease;
         }
 
         .side-notification button:hover {
@@ -173,7 +184,7 @@
             box-shadow: 0 4px 12px rgba(255, 149, 0, 0.4);
         }
 
-        /* Platforms List */
+        /* Plataformas */
         .platforms-list {
             display: flex;
             flex-direction: column;
@@ -215,7 +226,7 @@
         }
 
         .platform-badge {
-            background: var(--danger);
+            background: #FF5722;
             color: white;
             padding: 3px 8px;
             border-radius: 20px;
@@ -243,11 +254,6 @@
             cursor: pointer;
             box-shadow: 0 4px 12px rgba(255, 149, 0, 0.3);
             transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            animation: pulse 2s infinite;
         }
 
         .claim-btn:hover {
@@ -261,20 +267,8 @@
             100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 149, 0, 0); }
         }
 
-        @media (max-width: 768px) {
-            .notification-container {
-                width: calc(100% - 40px);
-                max-width: 300px;
-            }
-
-            .notification-container.top,
-            .notification-container.bottom {
-                right: 20px;
-            }
-
-            h1 {
-                font-size: 1.8rem;
-            }
+        .claim-btn {
+            animation: pulse 2s infinite;
         }
 
         /* Rodapé */
@@ -347,21 +341,61 @@
         <p>Ad space (Kadam, Propeller Ads, Adsterra)</p>
     </div>
 
-    <!-- Notificação Lateral Esquerda -->
-    <div class="side-notification" id="sideNotification">
-        <div class="notification">
-            <strong style="font-size: 1.1rem;">🔥 CPA Offers Paying Now!</strong><br>
-            <small>Check the best CPA offers that are currently paying out.</small><br>
-            <button onclick="window.location.href='cpa-offers.html'" style="margin-top: 10px; width: 100%;">View CPA Offers →</button>
-        </div>
-    </div>
-
     <!-- Dynamic Notifications -->
     <div class="notification-container top" id="notificationContainerTop"></div>
     <div class="notification-container bottom" id="notificationContainerBottom"></div>
 
     <!-- Platforms List -->
     <div class="platforms-list">
+
+        <!-- FaucetPay -->
+        <div class="platform-card">
+            <div class="platform-header">
+                <div>
+                    <span class="platform-name">1. FaucetPay</span>
+                    <span class="platform-badge">MOST POPULAR</span>
+                </div>
+                <div class="platform-rating">4.9 ★★★★★</div>
+            </div>
+            <div class="platform-details">
+                <p>💰 <strong>5,342 withdrawals today</strong> | Minimum: 50 DOGE</p>
+                <p>⚡ Instant payments in 10+ cryptocurrencies</p>
+            </div>
+            <button class="claim-btn" onclick="showPlatformNotification('FaucetPay', 'DOGE')">WITHDRAW NOW +100 BONUS</button>
+        </div>
+
+        <!-- FireFaucet -->
+        <div class="platform-card">
+            <div class="platform-header">
+                <div>
+                    <span class="platform-name">2. FireFaucet</span>
+                    <span class="platform-badge">2X BONUS</span>
+                </div>
+                <div class="platform-rating">4.7 ★★★★★</div>
+            </div>
+            <div class="platform-details">
+                <p>🔥 <strong>2,100 users online</strong> | Payments in RUB</p>
+                <p>🎮 Exclusive games with crypto rewards</p>
+            </div>
+            <button class="claim-btn" onclick="showPlatformNotification('FireFaucet', 'RUB')">EARN HERE +50% BONUS</button>
+        </div>
+
+        <!-- Cointiply -->
+        <div class="platform-card">
+            <div class="platform-header">
+                <div>
+                    <span class="platform-name">3. Cointiply</span>
+                    <span class="platform-badge">GAMES</span>
+                </div>
+                <div class="platform-rating">4.8 ★★★★★</div>
+            </div>
+            <div class="platform-details">
+                <p>🎰 <strong>5,000 free SATS</strong> on registration</p>
+                <p>🕹️ Games that pay in Bitcoin and Dogecoin</p>
+            </div>
+            <button class="claim-btn" onclick="showPlatformNotification('Cointiply', 'BTC')">PLAY NOW +1,000 SATS</button>
+        </div>
+
         <!-- SeoFast -->
         <div class="platform-card">
             <div class="platform-header">
@@ -369,7 +403,7 @@
                     <span class="platform-name">4. SeoFast</span>
                     <span class="platform-badge">RUSSIAN</span>
                 </div>
-                <div class="platform-rating">4.5 <span style="color:var(--accent)">★★★★☆</span></div>
+                <div class="platform-rating">4.5 ★★★★☆</div>
             </div>
             <div class="platform-details">
                 <p>📈 Payments in RUB via Payeer/Qiwi</p>
@@ -385,7 +419,7 @@
                     <span class="platform-name">5. Wmmail</span>
                     <span class="platform-badge">PTC</span>
                 </div>
-                <div class="platform-rating">4.3 <span style="color:var(--accent)">★★★★☆</span></div>
+                <div class="platform-rating">4.3 ★★★★☆</div>
             </div>
             <div class="platform-details">
                 <p>📧 Earn by reading emails | Minimum: $0.50</p>
@@ -401,7 +435,7 @@
                     <span class="platform-name">6. SocialTools</span>
                     <span class="platform-badge">SOCIAL</span>
                 </div>
-                <div class="platform-rating">4.4 <span style="color:var(--accent)">★★★★☆</span></div>
+                <div class="platform-rating">4.4 ★★★★☆</div>
             </div>
             <div class="platform-details">
                 <p>📱 Earn with social media</p>
@@ -417,7 +451,7 @@
                     <span class="platform-name">7. SeoSprint</span>
                     <span class="platform-badge">TASKS</span>
                 </div>
-                <div class="platform-rating">4.2 <span style="color:var(--accent)">★★★★☆</span></div>
+                <div class="platform-rating">4.2 ★★★★☆</div>
             </div>
             <div class="platform-details">
                 <p>📊 Various simple tasks</p>
@@ -433,7 +467,7 @@
                     <span class="platform-name">8. ProfitCentr</span>
                     <span class="platform-badge">MULTI</span>
                 </div>
-                <div class="platform-rating">4.6 <span style="color:var(--accent)">★★★★★</span></div>
+                <div class="platform-rating">4.6 ★★★★★</div>
             </div>
             <div class="platform-details">
                 <p>💰 Multiple earning methods</p>
@@ -449,7 +483,7 @@
                     <span class="platform-name">9. Web-IP</span>
                     <span class="platform-badge">SURF</span>
                 </div>
-                <div class="platform-rating">4.0 <span style="color:var(--accent)">★★★★☆</span></div>
+                <div class="platform-rating">4.0 ★★★★☆</div>
             </div>
             <div class="platform-details">
                 <p>🌐 Earn by browsing</p>
@@ -465,7 +499,7 @@
                     <span class="platform-name">10. IpGold</span>
                     <span class="platform-badge">AUTOMATIC</span>
                 </div>
-                <div class="platform-rating">4.1 <span style="color:var(--accent)">★★★★☆</span></div>
+                <div class="platform-rating">4.1 ★★★★☆</div>
             </div>
             <div class="platform-details">
                 <p>🤖 Automatic earnings</p>
@@ -481,7 +515,7 @@
                     <span class="platform-name">11. FreeBitco.in</span>
                     <span class="platform-badge">LEGENDARY</span>
                 </div>
-                <div class="platform-rating">4.9 <span style="color:var(--accent)">★★★★★</span></div>
+                <div class="platform-rating">4.9 ★★★★★</div>
             </div>
             <div class="platform-details">
                 <p>🎁 Spin free wheel every hour</p>
@@ -497,7 +531,7 @@
                     <span class="platform-name">12. ADBTC</span>
                     <span class="platform-badge">PTC</span>
                 </div>
-                <div class="platform-rating">4.3 <span style="color:var(--accent)">★★★★☆</span></div>
+                <div class="platform-rating">4.3 ★★★★☆</div>
             </div>
             <div class="platform-details">
                 <p>📌 Earn Bitcoin by clicking</p>
@@ -515,15 +549,20 @@
 
 </div>
 
+<!-- Notificação Lateral Esquerda -->
+<div class="side-notification" id="sideNotification">
+    <div class="notification">
+        <strong style="font-size:1.1rem;">🔥 CPA Offers Paying Now!</strong><br>
+        <small>Check the best CPA offers that are currently paying out.</small><br>
+        <button onclick="window.location.href='cpa-offers.html'" style="margin-top:10px; width:100%;">View CPA Offers →</button>
+    </div>
+</div>
+
 <!-- Rodapé -->
 <footer class="site-footer">
     <div class="footer-content">
-        <div class="footer-section about">
-            <h3>About</h3>
-        </div>
-        <div class="footer-section policy">
-            <h3>Privacy Policy</h3>
-        </div>
+        <div class="footer-section about"><h3>About</h3></div>
+        <div class="footer-section policy"><h3>Privacy Policy</h3></div>
     </div>
 
     <div id="cookieConsent" class="cookie-banner">
@@ -625,7 +664,7 @@
         setTimeout(rotateNotifications, 10000);
     }
 
-    // Inicia animações ao carregar
+    // Inicia animações ao carregar a página
     window.addEventListener('load', () => {
         rotateNotifications();
         showNotification({
@@ -636,6 +675,14 @@
         });
 
         typeWriter();
+
+        // Mostrar notificação lateral
+        const side = document.getElementById("sideNotification");
+        if (side) {
+            setTimeout(() => {
+                side.classList.add("show");
+            }, 1000);
+        }
     });
 
     // Animação do título
