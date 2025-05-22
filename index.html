@@ -32,6 +32,7 @@
             max-width: 800px;
             margin: 0 auto;
         }
+
         header {
             text-align: center;
             margin-bottom: 30px;
@@ -63,7 +64,10 @@
             color: rgba(255,255,255,0.5);
             font-size: 0.9rem;
         }
-        .notification-container {
+
+        /* Notification containers */
+        .notification-container.top,
+        .notification-container.bottom {
             position: fixed;
             width: 300px;
             z-index: 1000;
@@ -76,6 +80,43 @@
             bottom: 20px;
             right: 20px;
         }
+
+        /* Side Notification Bar (Left) */
+        .side-notification {
+            position: fixed;
+            left: 20px;
+            top: 100px;
+            width: 300px;
+            z-index: 1000;
+        }
+        .side-notification .notification {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255,255,255,0.1);
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .side-notification .notification strong {
+            color: var(--accent);
+        }
+        .side-notification button {
+            margin-top: 10px;
+            background: linear-gradient(90deg, var(--primary), var(--danger));
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        .side-notification button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(255, 149, 0, 0.4);
+        }
+
+        /* Notification Style */
         .notification {
             background: linear-gradient(135deg, rgba(110, 69, 226, 0.9), rgba(255, 149, 0, 0.9));
             color: white;
@@ -119,6 +160,8 @@
             display: inline-block;
             margin-bottom: 3px;
         }
+
+        /* Platforms List */
         .platforms-list {
             display: flex;
             flex-direction: column;
@@ -168,6 +211,8 @@
             line-height: 1.5;
             font-size: 0.95rem;
         }
+
+        /* Buttons */
         .claim-btn {
             background: linear-gradient(90deg, var(--primary), var(--danger));
             color: white;
@@ -195,55 +240,28 @@
             70% { transform: scale(1.02); box-shadow: 0 0 0 10px rgba(255, 149, 0, 0); }
             100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 149, 0, 0); }
         }
-        @media (max-width: 768px) {
-            .notification-container {
-                width: calc(100% - 40px);
-                max-width: 300px;
-            }
-            .notification-container.top {
-                top: 10px;
-                right: 20px;
-            }
-            .notification-container.bottom {
-                bottom: 10px;
-                right: 20px;
-            }
-            h1 {
-                font-size: 1.8rem;
-            }
-        }
-        .stars {
-            color: var(--accent);
-            font-size: 0.9rem;
-            margin-left: 4px;
-        }
 
-        /* Footer Styles */
+        /* Footer */
         .site-footer {
             margin-top: 60px;
             padding: 40px 20px 20px;
             background: linear-gradient(135deg, rgba(18, 18, 18, 0.9), rgba(30, 30, 30, 0.8));
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            border-top: 1px solid rgba(255,255,255,0.1);
             font-size: 0.9rem;
+            text-align: center;
         }
         .footer-content {
             display: flex;
+            justify-content: center;
+            gap: 40px;
             flex-wrap: wrap;
-            justify-content: space-between;
-            gap: 20px;
-            max-width: 1100px;
-            margin: 0 auto;
-            padding-bottom: 30px;
-        }
-        .footer-section {
-            flex: 1;
-            min-width: 250px;
         }
         .footer-section h3 {
             color: var(--accent);
             margin-bottom: 10px;
             font-size: 1rem;
         }
+
         .cookie-banner {
             background: rgba(0, 0, 0, 0.7);
             color: #ccc;
@@ -271,175 +289,61 @@
             text-align: center;
             color: #666;
             font-size: 0.8rem;
-            padding-bottom: 20px;
+            padding-top: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .notification-container {
+                width: calc(100% - 40px);
+                max-width: 300px;
+            }
+            .notification-container.top {
+                top: 10px;
+                right: 20px;
+            }
+            .notification-container.bottom {
+                bottom: 10px;
+                right: 20px;
+            }
+            h1 {
+                font-size: 1.8rem;
+            }
+        }
+        .stars {
+            color: var(--accent);
+            font-size: 0.9rem;
+            margin-left: 4px;
         }
     </style>
 </head>
 <body>
+
+    <!-- Conteúdo Principal -->
     <div class="container">
         <header>
             <h1>🏆 TOP PLATFORMS TO EARN CRYPTO</h1>
             <p>Instant withdrawals • Exclusive bonuses • Community rated</p>
         </header>
-
-        <!-- Ad Space -->
         <div class="ad-space">
             <p>Ad space (Kadam, Propeller Ads, Adsterra)</p>
         </div>
 
-        <!-- Dynamic Notifications -->
-        <div class="notification-container top" id="notificationContainerTop"></div>
-        <div class="notification-container bottom" id="notificationContainerBottom"></div>
-
-        <!-- Platforms List -->
-        <div class="platforms-list">
-
-            <!-- SeoFast -->
-            <div class="platform-card">
-                <div class="platform-header">
-                    <div>
-                        <span class="platform-name">4. SeoFast</span>
-                        <span class="platform-badge">RUSSIAN</span>
-                    </div>
-                    <div class="platform-rating">4.5 <span class="stars">★★★★☆</span></div>
-                </div>
-                <div class="platform-details">
-                    <p>📈 Payments in RUB via Payeer/Qiwi</p>
-                    <p>💼 Various tasks available</p>
-                </div>
-                <button class="claim-btn" onclick="showPlatformNotification('SeoFast', 'RUB')">START NOW</button>
-            </div>
-
-            <!-- Wmmail -->
-            <div class="platform-card">
-                <div class="platform-header">
-                    <div>
-                        <span class="platform-name">5. Wmmail</span>
-                        <span class="platform-badge">PTC</span>
-                    </div>
-                    <div class="platform-rating">4.3 <span class="stars">★★★★☆</span></div>
-                </div>
-                <div class="platform-details">
-                    <p>📧 Earn by reading emails | Minimum: $0.50</p>
-                    <p>🔄 Withdrawals processed in 24h</p>
-                </div>
-                <button class="claim-btn" onclick="showPlatformNotification('Wmmail', 'USD')">READ EMAILS</button>
-            </div>
-
-            <!-- SocialTools -->
-            <div class="platform-card">
-                <div class="platform-header">
-                    <div>
-                        <span class="platform-name">6. SocialTools</span>
-                        <span class="platform-badge">SOCIAL</span>
-                    </div>
-                    <div class="platform-rating">4.4 <span class="stars">★★★★☆</span></div>
-                </div>
-                <div class="platform-details">
-                    <p>📱 Earn with social media</p>
-                    <p>👍 Likes, followers and more</p>
-                </div>
-                <button class="claim-btn" onclick="showPlatformNotification('SocialTools', 'BTC')">JOIN NOW</button>
-            </div>
-
-            <!-- SeoSprint -->
-            <div class="platform-card">
-                <div class="platform-header">
-                    <div>
-                        <span class="platform-name">7. SeoSprint</span>
-                        <span class="platform-badge">TASKS</span>
-                    </div>
-                    <div class="platform-rating">4.2 <span class="stars">★★★★☆</span></div>
-                </div>
-                <div class="platform-details">
-                    <p>📊 Various simple tasks</p>
-                    <p>⏱️ Quick earnings</p>
-                </div>
-                <button class="claim-btn" onclick="showPlatformNotification('SeoSprint', 'RUB')">START TASKS</button>
-            </div>
-
-            <!-- ProfitCentr -->
-            <div class="platform-card">
-                <div class="platform-header">
-                    <div>
-                        <span class="platform-name">8. ProfitCentr</span>
-                        <span class="platform-badge">MULTI</span>
-                    </div>
-                    <div class="platform-rating">4.6 <span class="stars">★★★★★</span></div>
-                </div>
-                <div class="platform-details">
-                    <p>💰 Multiple earning methods</p>
-                    <p>🌎 Available worldwide</p>
-                </div>
-                <button class="claim-btn" onclick="showPlatformNotification('ProfitCentr', 'BTC')">ACCESS PLATFORM</button>
-            </div>
-
-            <!-- Web-IP -->
-            <div class="platform-card">
-                <div class="platform-header">
-                    <div>
-                        <span class="platform-name">9. Web-IP</span>
-                        <span class="platform-badge">SURF</span>
-                    </div>
-                    <div class="platform-rating">4.0 <span class="stars">★★★★☆</span></div>
-                </div>
-                <div class="platform-details">
-                    <p>🌐 Earn by browsing</p>
-                    <p>⏳ Accumulate points automatically</p>
-                </div>
-                <button class="claim-btn" onclick="showPlatformNotification('Web-IP', 'DOGE')">START BROWSING</button>
-            </div>
-
-            <!-- IpGold -->
-            <div class="platform-card">
-                <div class="platform-header">
-                    <div>
-                        <span class="platform-name">10. IpGold</span>
-                        <span class="platform-badge">AUTOMATIC</span>
-                    </div>
-                    <div class="platform-rating">4.1 <span class="stars">★★★★☆</span></div>
-                </div>
-                <div class="platform-details">
-                    <p>🤖 Automatic earnings</p>
-                    <p>💳 Withdrawals to PayPal and crypto</p>
-                </div>
-                <button class="claim-btn" onclick="showPlatformNotification('IpGold', 'USD')">ACTIVATE EARNINGS</button>
-            </div>
-
-            <!-- FreeBitco.in -->
-            <div class="platform-card">
-                <div class="platform-header">
-                    <div>
-                        <span class="platform-name">11. FreeBitco.in</span>
-                        <span class="platform-badge">LEGENDARY</span>
-                    </div>
-                    <div class="platform-rating">4.9 <span class="stars">★★★★★</span></div>
-                </div>
-                <div class="platform-details">
-                    <p>🎁 Spin free wheel every hour</p>
-                    <p>🏆 Over 1 million users</p>
-                </div>
-                <button class="claim-btn" onclick="showPlatformNotification('FreeBitco.in', 'BTC')">SPIN WHEEL NOW</button>
-            </div>
-
-            <!-- ADBTC -->
-            <div class="platform-card">
-                <div class="platform-header">
-                    <div>
-                        <span class="platform-name">12. ADBTC</span>
-                        <span class="platform-badge">PTC</span>
-                    </div>
-                    <div class="platform-rating">4.3 <span class="stars">★★★★☆</span></div>
-                </div>
-                <div class="platform-details">
-                    <p>📌 Earn Bitcoin by clicking</p>
-                    <p>⚡ Fast withdrawals</p>
-                </div>
-                <button class="claim-btn" onclick="showPlatformNotification('ADBTC', 'BTC')">CLICK TO EARN</button>
+        <!-- Notificação Lateral Esquerda -->
+        <div class="side-notification">
+            <div class="notification">
+                <strong>🔥 CPA Offers Paying Now!</strong><br>
+                <small>Check the best CPA offers that are currently paying out.</small>
+                <button onclick="window.location.href='#cpa-offers'">View Offers →</button>
             </div>
         </div>
 
-        <!-- Ad Space at bottom -->
+        <!-- Outras notificações -->
+        <div class="notification-container top" id="notificationContainerTop"></div>
+        <div class="notification-container bottom" id="notificationContainerBottom"></div>
+
+        <!-- Lista de Plataformas -->
+        <!-- [Seu conteúdo das plataformas aqui] -->
+
         <div class="ad-space">
             <p>Ad space (Kadam, Propeller Ads, Adsterra)</p>
         </div>
@@ -584,7 +488,6 @@
         if (!localStorage.getItem("cookiesAccepted")) {
             cookieBanner.style.display = "flex";
         }
-
         function acceptCookies() {
             localStorage.setItem("cookiesAccepted", "true");
             cookieBanner.style.display = "none";
