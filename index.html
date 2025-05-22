@@ -33,7 +33,6 @@
         .container {
             max-width: 800px;
             margin: 0 auto;
-            position: relative;
         }
         
         header {
@@ -83,10 +82,92 @@
             border: 1px solid rgba(255,255,255,0.1);
         }
         
-        /* [OUTROS ESTILOS EXISTENTES...] */
-
-        /* Nova Notificação CPA */
-        #cpa-floating-notification {
+        .platform-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 18px rgba(0,0,0,0.3);
+        }
+        
+        .platform-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+        
+        .platform-name {
+            font-weight: bold;
+            font-size: 1.1rem;
+            color: var(--accent);
+        }
+        
+        .platform-rating {
+            color: var(--accent);
+            font-size: 0.9rem;
+        }
+        
+        .platform-badge {
+            background: var(--danger);
+            color: white;
+            padding: 3px 8px;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            font-weight: bold;
+            margin-left: 8px;
+            display: inline-block;
+        }
+        
+        .platform-details {
+            margin-bottom: 12px;
+            line-height: 1.5;
+            font-size: 0.95rem;
+        }
+        
+        .claim-btn {
+            background: linear-gradient(90deg, var(--primary), var(--danger));
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 6px;
+            font-weight: bold;
+            font-size: 0.95rem;
+            width: 100%;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(255, 149, 0, 0.3);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 149, 0, 0.4); }
+            70% { transform: scale(1.02); box-shadow: 0 0 0 10px rgba(255, 149, 0, 0); }
+            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 149, 0, 0); }
+        }
+        
+        footer {
+            padding: 20px 0;
+            text-align: center;
+            font-size: 0.8rem;
+            color: #aaa;
+            margin-top: 40px;
+            border-top: 1px solid #333;
+        }
+        
+        footer a {
+            color: #aaa;
+            margin: 0 10px;
+            text-decoration: none;
+        }
+        
+        footer a:hover {
+            color: #FFD700;
+        }
+        
+        /* Notificação CPA Flutuante */
+        #cpa-notification {
             position: fixed;
             left: 20px;
             bottom: -100px;
@@ -103,12 +184,12 @@
             opacity: 0;
         }
         
-        #cpa-floating-notification.show {
+        #cpa-notification.show {
             bottom: 20px;
             opacity: 1;
         }
         
-        #cpa-floating-notification .close-btn {
+        #cpa-notification .close-btn {
             position: absolute;
             top: 5px;
             right: 5px;
@@ -119,11 +200,7 @@
             font-size: 14px;
         }
         
-        #cpa-floating-notification .cpa-content {
-            font-size: 0.9rem;
-        }
-        
-        #cpa-floating-notification .cpa-badge {
+        #cpa-notification .notification-badge {
             background: rgba(0,0,0,0.3);
             padding: 2px 8px;
             border-radius: 10px;
@@ -133,7 +210,7 @@
             margin-bottom: 5px;
         }
         
-        #cpa-floating-notification .cpa-link {
+        #cpa-notification .cpa-link {
             display: inline-block;
             background: white;
             color: #6E45E2;
@@ -144,19 +221,47 @@
             margin-top: 8px;
             text-decoration: none;
         }
-
-        footer {
-            padding: 20px 0;
+        
+        /* Banner de Cookies */
+        #cookie-banner {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0,0,0,0.9);
+            padding: 12px;
             text-align: center;
-            font-size: 0.8rem;
-            color: #aaa;
-            margin-top: 40px;
+            display: none;
+            z-index: 1000;
         }
         
-        footer a {
-            color: #aaa;
-            margin: 0 10px;
-            text-decoration: none;
+        #cookie-banner p {
+            color: white;
+            margin: 0;
+            font-size: 0.9rem;
+        }
+        
+        #cookie-banner a {
+            color: #FFD700;
+        }
+        
+        #cookie-banner button {
+            background: #FF9500;
+            color: white;
+            border: none;
+            padding: 5px 15px;
+            margin-left: 10px;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 0.8rem;
+        }
+        
+        @media (max-width: 768px) {
+            #cpa-notification {
+                width: calc(100% - 40px);
+                left: 20px;
+                right: 20px;
+            }
         }
     </style>
 </head>
@@ -366,49 +471,12 @@
             </div>
         </div>
         
-        <!-- Seção CPA (oculta inicialmente) -->
-        <section id="cpa-offers" style="display: none; padding: 30px 0; margin-top: 40px; border-top: 1px solid #333;">
-            <h2 style="text-align: center; margin-bottom: 25px; color: #FFD700;">💰 Ofertas Exclusivas de CPA</h2>
-            
-            <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px;">
-                <!-- Oferta 1 -->
-                <div style="background: rgba(40, 40, 40, 0.7); border-radius: 10px; padding: 20px; border: 1px solid #444;">
-                    <div style="display: flex; justify-content: space-between; margin-bottom: 15px;">
-                        <h3 style="color: #FF9500;">Pesquisas Remuneradas</h3>
-                        <span style="background: #4CAF50; color: white; padding: 3px 10px; border-radius: 20px; font-size: 0.8rem;">Ganhe R$5-50</span>
-                    </div>
-                    <p style="margin-bottom: 15px; font-size: 0.9rem;">Responda pesquisas rápidas e receba em sua carteira de cripto.</p>
-                    <a href="#" onclick="trackOfferClick('survey')" style="background: #FF9500; color: white; padding: 10px; border-radius: 5px; text-decoration: none; display: block; text-align: center; font-weight: bold; font-size: 0.9rem;">PARTICIPAR AGORA</a>
-                </div>
-                
-                <!-- Oferta 2 -->
-                <div style="background: rgba(40, 40, 40, 0.7); border-radius: 10px; padding: 20px; border: 1px solid #444;">
-                    <div style="display: flex; justify-content: space-between; margin-bottom: 15px;">
-                        <h3 style="color: #FF9500;">Teste de Apps</h3>
-                        <span style="background: #4CAF50; color: white; padding: 3px 10px; border-radius: 20px; font-size: 0.8rem;">Ganhe R$10-100</span>
-                    </div>
-                    <p style="margin-bottom: 15px; font-size: 0.9rem;">Teste novos aplicativos e ganhe recompensas em criptomoedas.</p>
-                    <a href="#" onclick="trackOfferClick('app-test')" style="background: #FF9500; color: white; padding: 10px; border-radius: 5px; text-decoration: none; display: block; text-align: center; font-weight: bold; font-size: 0.9rem;">COMEÇAR A TESTAR</a>
-                </div>
-                
-                <!-- Oferta 3 -->
-                <div style="background: rgba(40, 40, 40, 0.7); border-radius: 10px; padding: 20px; border: 1px solid #444;">
-                    <div style="display: flex; justify-content: space-between; margin-bottom: 15px;">
-                        <h3 style="color: #FF9500;">Cadastros Premium</h3>
-                        <span style="background: #4CAF50; color: white; padding: 3px 10px; border-radius: 20px; font-size: 0.8rem;">Ganhe R$15-200</span>
-                    </div>
-                    <p style="margin-bottom: 15px; font-size: 0.9rem;">Cadastre-se em plataformas selecionadas e ganhe bônus.</p>
-                    <a href="#" onclick="trackOfferClick('signup')" style="background: #FF9500; color: white; padding: 10px; border-radius: 5px; text-decoration: none; display: block; text-align: center; font-weight: bold; font-size: 0.9rem;">VER OFERTAS</a>
-                </div>
-            </div>
-        </section>
-        
         <footer>
             <div class="container">
                 <p>
                     <a href="about.html">Sobre</a> |
-                    <a href="privacy.html">Privacidade</a> |
-                    <a href="terms.html">Termos</a> |
+                    <a href="privacy.html">Política de Privacidade</a> |
+                    <a href="terms.html">Termos de Serviço</a> |
                     <a href="contact.html">Contato</a>
                 </p>
                 <p>© 2023 Top Plataformas Cripto. Alguns links podem ser afiliados.</p>
@@ -416,71 +484,148 @@
         </footer>
     </div>
     
-    <!-- Notificação Flutuante de CPA -->
-    <div id="cpa-floating-notification">
+    <!-- Notificação CPA Flutuante -->
+    <div id="cpa-notification">
         <button class="close-btn" onclick="closeCpaNotification()">✕</button>
-        <div class="cpa-badge">OFERTAS LIMITADAS</div>
-        <div class="cpa-content">
-            <strong>Ganhe até R$200</strong> completando tarefas simples!
-        </div>
-        <a href="#cpa-offers" class="cpa-link">VER OFERTAS</a>
+        <span class="notification-badge">OPORTUNIDADE</span>
+        <p>Ganhe até <strong style="color: #FFD700;">R$200</strong> com ofertas especiais!</p>
+        <a href="#" class="cpa-link" onclick="handleCpaClick()">VER OFERTAS</a>
     </div>
     
     <!-- Banner de Cookies -->
-    <div id="cookie-banner" style="position: fixed; bottom: 0; left: 0; right: 0; background: rgba(0,0,0,0.9); padding: 12px; text-align: center; display: none; z-index: 1000;">
-        <p style="color: white; margin: 0; font-size: 0.9rem;">Usamos cookies para melhorar sua experiência. <a href="privacy.html" style="color: #FFD700;">Saiba mais</a></p>
-        <button onclick="acceptCookies()" style="background: #FF9500; color: white; border: none; padding: 5px 15px; margin-left: 10px; border-radius: 3px; cursor: pointer; font-size: 0.8rem;">Aceitar</button>
+    <div id="cookie-banner">
+        <p>Usamos cookies para melhorar sua experiência. <a href="privacy.html">Saiba mais</a></p>
+        <button onclick="acceptCookies()">Aceitar</button>
     </div>
 
     <script>
         // Notificações dinâmicas
         const notifications = [
-            // [SEU CÓDIGO EXISTENTE DE NOTIFICAÇÕES...]
+            {
+                icon: "💸",
+                badge: "SAQUE",
+                platform: "FaucetPay",
+                currency: "DOGE",
+                amount: (Math.random() * 5 + 0.5).toFixed(3)
+            },
+            {
+                icon: "🔥",
+                badge: "RECORDE",
+                platform: "FireFaucet",
+                currency: "RUB",
+                amount: Math.floor(Math.random() * 5000 + 1000)
+            },
+            {
+                icon: "🎰",
+                badge: "BÔNUS",
+                platform: "Cointiply",
+                currency: "BTC",
+                amount: (Math.random() * 0.001 + 0.0005).toFixed(8).replace(/\.?0+$/, "")
+            }
         ];
         
-        // Mostrar notificação flutuante de CPA
-        function showCpaNotification() {
-            const cpaNotification = document.getElementById('cpa-floating-notification');
+        // Mostrar notificação da plataforma
+        function showPlatformNotification(platform, currency) {
+            const prefixes = ["Crypto", "Bitcoin", "Doge", "Trader", "Investor"];
+            const suffixes = ["King", "Master", "Pro", "Expert", "Guru"];
+            const username = "@" + prefixes[Math.floor(Math.random() * prefixes.length)] + 
+                            suffixes[Math.floor(Math.random() * suffixes.length)] + 
+                            Math.floor(Math.random() * 100);
+            
+            let amount;
+            if (currency === "BTC") {
+                amount = (Math.random() * 0.005 + 0.0001).toFixed(8).replace(/\.?0+$/, "");
+            } else if (currency === "DOGE") {
+                amount = (Math.random() * 100 + 10).toFixed(2);
+            } else if (currency === "RUB") {
+                amount = Math.floor(Math.random() * 5000 + 1000);
+            } else {
+                amount = (Math.random() * 15 + 1).toFixed(2);
+            }
+            
+            showNotification({
+                icon: "💸",
+                badge: "SAQUE",
+                message: `<strong>${username}</strong> sacou <span style='color:#FFD700'>${amount} ${currency}</span> via ${platform}!`,
+                duration: 6000
+            });
+        }
+        
+        // Sistema de notificações
+        function showNotification(notif) {
+            const containers = [
+                document.getElementById('notificationContainerTop'),
+                document.getElementById('notificationContainerBottom')
+            ];
+            const container = containers[Math.floor(Math.random() * containers.length)];
+            
+            const notification = document.createElement('div');
+            notification.className = 'notification';
+            notification.innerHTML = `
+                <div class="notification-icon">${notif.icon}</div>
+                <div class="notification-content">
+                    <span class="notification-badge">${notif.badge}</span>
+                    <p>${notif.message}</p>
+                </div>
+            `;
+            
+            container.appendChild(notification);
+            
             setTimeout(() => {
-                cpaNotification.classList.add('show');
-                
-                // Fechar após 30 segundos se não interagir
+                notification.classList.add('active');
+            }, 100);
+            
+            setTimeout(() => {
+                notification.classList.remove('active');
                 setTimeout(() => {
-                    if (cpaNotification.classList.contains('show')) {
-                        closeCpaNotification();
-                    }
-                }, 30000);
-            }, 5000); // Mostrar após 5 segundos
+                    notification.remove();
+                }, 500);
+            }, notif.duration);
         }
         
-        // Fechar notificação CPA
+        // Rotação automática de notificações
+        let currentNotif = 0;
+        function rotateNotifications() {
+            showNotification(notifications[currentNotif]);
+            currentNotif = (currentNotif + 1) % notifications.length;
+            setTimeout(rotateNotifications, 10000);
+        }
+        
+        // Notificação CPA
+        let cpaNotificationTimer;
+        let cpaNotificationInterval;
+        
+        function showCpaNotification() {
+            const cpaNotif = document.getElementById('cpa-notification');
+            cpaNotif.classList.add('show');
+            
+            // Fechar após 30 segundos
+            clearTimeout(cpaNotificationTimer);
+            cpaNotificationTimer = setTimeout(() => {
+                closeCpaNotification();
+                
+                // Reaparecer após 1 minuto
+                setTimeout(showCpaNotification, 60000);
+            }, 30000);
+        }
+        
         function closeCpaNotification() {
-            document.getElementById('cpa-floating-notification').classList.remove('show');
-            localStorage.setItem('cpaNotificationClosed', 'true');
+            document.getElementById('cpa-notification').classList.remove('show');
         }
         
-        // Aceitar cookies
+        function handleCpaClick() {
+            // Você pode adicionar o link para sua página de CPA aqui depois
+            alert("Em breve você será redirecionado para nossas ofertas de CPA!");
+            closeCpaNotification();
+        }
+        
+        // Cookie Banner
         function acceptCookies() {
             localStorage.setItem('cookiesAccepted', 'true');
             document.getElementById('cookie-banner').style.display = 'none';
         }
         
-        // Rolar suavemente para a seção CPA
-        function scrollToCpaOffers() {
-            document.getElementById('cpa-offers').style.display = 'block';
-            window.scrollTo({
-                top: document.getElementById('cpa-offers').offsetTop - 20,
-                behavior: 'smooth'
-            });
-        }
-        
-        // Rastrear clique em ofertas
-        function trackOfferClick(offerType) {
-            // Aqui você pode adicionar código para rastrear conversões
-            console.log('Oferta clicada:', offerType);
-        }
-        
-        // Iniciar quando a página carregar
+        // Inicialização
         window.addEventListener('load', function() {
             // Mostrar banner de cookies se não aceito
             if (!localStorage.getItem('cookiesAccepted')) {
@@ -489,27 +634,41 @@
             
             // Mostrar notificação CPA se não fechada
             if (!localStorage.getItem('cpaNotificationClosed')) {
-                showCpaNotification();
+                setTimeout(showCpaNotification, 5000);
             }
             
-            // Configurar link da notificação CPA
-            document.querySelector('#cpa-floating-notification .cpa-link').addEventListener('click', function(e) {
-                e.preventDefault();
-                closeCpaNotification();
-                scrollToCpaOffers();
+            // Fazer a notificação acompanhar o scroll
+            window.addEventListener('scroll', function() {
+                const cpaNotif = document.getElementById('cpa-notification');
+                if (cpaNotif.classList.contains('show')) {
+                    const scrollPosition = window.scrollY || window.pageYOffset;
+                    cpaNotif.style.bottom = (20 + scrollPosition) + 'px';
+                }
             });
             
-            // [SEU CÓDIGO EXISTENTE DE CARREGAMENTO...]
+            // Iniciar notificações automáticas
+            setTimeout(rotateNotifications, 2000);
+            
+            // Efeito de digitação no título
+            typeWriter();
         });
         
-        // Fazer a notificação CPA acompanhar o scroll
-        window.addEventListener('scroll', function() {
-            const cpaNotification = document.getElementById('cpa-floating-notification');
-            if (cpaNotification.classList.contains('show')) {
-                const scrollPosition = window.scrollY || window.pageYOffset;
-                cpaNotification.style.bottom = Math.max(20, 20 + scrollPosition) + 'px';
-            }
-        });
+        // Efeito de digitação
+        function typeWriter() {
+            const title = document.querySelector('h1');
+            const originalText = title.innerText;
+            title.innerText = '';
+            
+            let i = 0;
+            const typing = setInterval(() => {
+                if (i < originalText.length) {
+                    title.innerText += originalText.charAt(i);
+                    i++;
+                } else {
+                    clearInterval(typing);
+                }
+            }, 50);
+        }
     </script>
 </body>
 </html>
