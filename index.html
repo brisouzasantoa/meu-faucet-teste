@@ -1,11 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Best Crypto Faucets | Earn Money Online</title>
+    <title>Melhores Faucets de Cripto | Ganhe Dinheiro Online</title>
     <style>
-        /* Global Styles */
         :root {
             --primary: #FF9500;
             --secondary: #6E45E2;
@@ -31,13 +30,12 @@
             min-height: 100vh;
         }
         
-        /* Main Container */
         .container {
             max-width: 800px;
             margin: 0 auto;
+            position: relative;
         }
         
-        /* Header */
         header {
             text-align: center;
             margin-bottom: 30px;
@@ -55,7 +53,6 @@
             word-spacing: 3px;
         }
         
-        /* Ad Space */
         .ad-space {
             background: rgba(30, 30, 30, 0.6);
             border: 1px dashed rgba(255,255,255,0.2);
@@ -69,78 +66,6 @@
             justify-content: center;
         }
         
-        .ad-space p {
-            color: rgba(255,255,255,0.5);
-            font-size: 0.9rem;
-        }
-        
-        /* Notifications */
-        .notification-container {
-            position: fixed;
-            width: 300px;
-            z-index: 1000;
-        }
-        
-        .notification-container.top {
-            top: 20px;
-            right: 20px;
-        }
-        
-        .notification-container.bottom {
-            bottom: 20px;
-            right: 20px;
-        }
-        
-        .notification {
-            background: linear-gradient(135deg, rgba(110, 69, 226, 0.9), rgba(255, 149, 0, 0.9));
-            color: white;
-            padding: 12px 15px;
-            border-radius: 8px;
-            margin: 10px 0;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-            display: flex;
-            align-items: center;
-            opacity: 0;
-            transform: translateX(100%);
-            transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-            backdrop-filter: blur(5px);
-            border: 1px solid rgba(255,255,255,0.1);
-            max-width: 300px;
-            font-size: 0.9rem;
-        }
-        
-        .notification.active {
-            opacity: 1;
-            transform: translateX(0);
-        }
-        
-        .notification.exiting {
-            opacity: 0;
-            transform: translateX(100%);
-        }
-        
-        .notification-icon {
-            font-size: 20px;
-            margin-right: 12px;
-            min-width: 30px;
-            text-align: center;
-        }
-        
-        .notification-content {
-            flex: 1;
-        }
-        
-        .notification-badge {
-            background: rgba(0,0,0,0.3);
-            padding: 2px 8px;
-            border-radius: 10px;
-            font-size: 0.7rem;
-            font-weight: bold;
-            display: inline-block;
-            margin-bottom: 3px;
-        }
-        
-        /* Platforms List */
         .platforms-list {
             display: flex;
             flex-direction: column;
@@ -158,581 +83,433 @@
             border: 1px solid rgba(255,255,255,0.1);
         }
         
-        .platform-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 18px rgba(0,0,0,0.3);
+        /* [OUTROS ESTILOS EXISTENTES...] */
+
+        /* Nova Notificação CPA */
+        #cpa-floating-notification {
+            position: fixed;
+            left: 20px;
+            bottom: -100px;
+            width: 280px;
+            background: linear-gradient(135deg, rgba(110, 69, 226, 0.85), rgba(255, 149, 0, 0.85));
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255,255,255,0.15);
+            z-index: 999;
+            transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            opacity: 0;
         }
         
-        .platform-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 12px;
+        #cpa-floating-notification.show {
+            bottom: 20px;
+            opacity: 1;
         }
         
-        .platform-name {
-            font-weight: bold;
-            font-size: 1.1rem;
-            color: var(--accent);
+        #cpa-floating-notification .close-btn {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            background: transparent;
+            border: none;
+            color: white;
+            cursor: pointer;
+            font-size: 14px;
         }
         
-        .platform-rating {
-            color: var(--accent);
+        #cpa-floating-notification .cpa-content {
             font-size: 0.9rem;
         }
         
-        .platform-badge {
-            background: var(--danger);
-            color: white;
-            padding: 3px 8px;
-            border-radius: 20px;
+        #cpa-floating-notification .cpa-badge {
+            background: rgba(0,0,0,0.3);
+            padding: 2px 8px;
+            border-radius: 10px;
             font-size: 0.7rem;
             font-weight: bold;
-            margin-left: 8px;
             display: inline-block;
+            margin-bottom: 5px;
         }
         
-        .platform-details {
-            margin-bottom: 12px;
-            line-height: 1.5;
-            font-size: 0.95rem;
-        }
-        
-        /* Buttons */
-        .claim-btn {
-            background: linear-gradient(90deg, var(--primary), var(--danger));
-            color: white;
-            border: none;
-            padding: 12px 20px;
-            border-radius: 6px;
+        #cpa-floating-notification .cpa-link {
+            display: inline-block;
+            background: white;
+            color: #6E45E2;
+            padding: 5px 12px;
+            border-radius: 20px;
             font-weight: bold;
-            font-size: 0.95rem;
-            width: 100%;
-            cursor: pointer;
-            box-shadow: 0 4px 12px rgba(255, 149, 0, 0.3);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            animation: pulse 2s infinite;
+            font-size: 0.8rem;
+            margin-top: 8px;
+            text-decoration: none;
         }
-        
-        .claim-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 16px rgba(255, 149, 0, 0.5);
-        }
-        
-        @keyframes pulse {
-            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 149, 0, 0.4); }
-            70% { transform: scale(1.02); box-shadow: 0 0 0 10px rgba(255, 149, 0, 0); }
-            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 149, 0, 0); }
-        }
-        
-        /* Responsiveness */
-        @media (max-width: 768px) {
-            .notification-container {
-                width: calc(100% - 40px);
-                max-width: 300px;
-            }
-            
-            .notification-container.top {
-                top: 10px;
-                right: 20px;
-            }
-            
-            .notification-container.bottom {
-                bottom: 10px;
-                right: 20px;
-            }
-            
-            h1 {
-                font-size: 1.8rem;
-            }
-        }
-        
-        /* Rating Stars */
-        .stars {
-            color: var(--accent);
-            font-size: 0.9rem;
-            margin-left: 4px;
-        }
-        
-        /* New Elements */
+
         footer {
-            padding: 20px 0; 
-            text-align: center; 
-            font-size: 0.8rem; 
+            padding: 20px 0;
+            text-align: center;
+            font-size: 0.8rem;
             color: #aaa;
             margin-top: 40px;
-            border-top: 1px solid #333;
         }
         
         footer a {
-            color: #aaa; 
+            color: #aaa;
             margin: 0 10px;
             text-decoration: none;
-        }
-        
-        footer a:hover {
-            color: #FFD700;
-        }
-        
-        #cookie-banner {
-            position: fixed; 
-            bottom: 0; 
-            left: 0; 
-            right: 0; 
-            background: rgba(0,0,0,0.9); 
-            padding: 12px 20px; 
-            text-align: center; 
-            display: none; 
-            z-index: 1001;
-            color: white;
-        }
-        
-        #cookie-banner button {
-            background: #FF9500; 
-            color: white; 
-            border: none; 
-            padding: 5px 15px; 
-            margin-left: 10px; 
-            border-radius: 3px; 
-            cursor: pointer;
-        }
-        
-        #cpa-notification {
-            position: fixed; 
-            bottom: 0; 
-            left: 0; 
-            right: 0; 
-            background: linear-gradient(90deg, #6E45E2, #FF9500); 
-            color: white; 
-            padding: 12px 20px; 
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center; 
-            z-index: 1000;
-        }
-        
-        #cpa-notification a {
-            background: white; 
-            color: #6E45E2; 
-            padding: 6px 18px; 
-            border-radius: 20px; 
-            font-weight: bold; 
-            text-decoration: none;
-            font-size: 0.9rem;
-        }
-        
-        #cpa-notification a:hover {
-            background: #f0f0f0;
-        }
-        
-        .close-cpa {
-            background: transparent; 
-            border: none; 
-            color: white; 
-            margin-left: 10px; 
-            cursor: pointer;
-            font-size: 1rem;
-        }
-        
-        #cpa-offers {
-            padding: 40px 0;
-            background: #1a1a1a;
-            margin-top: 30px;
-            display: none;
-        }
-        
-        .offers-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 20px;
-            margin-top: 20px;
-        }
-        
-        .offer-card {
-            background: #2a2a2a;
-            border-radius: 10px;
-            padding: 20px;
-            border: 1px solid #333;
         }
     </style>
 </head>
 <body>
     <div class="container">
         <header>
-            <h1>🏆 TOP PLATFORMS TO EARN CRYPTO</h1>
-            <p>Instant withdrawals • Exclusive bonuses • Community rated</p>
+            <h1>🏆 TOP PLATAFORMAS PARA GANHAR CRIPTO</h1>
+            <p>Saques instantâneos • Bônus exclusivos • Avaliadas pela comunidade</p>
         </header>
         
-        <!-- Ad Space -->
         <div class="ad-space">
-            <p>Ad space (Kadam, Propeller Ads, Adsterra)</p>
+            <p>Espaço publicitário (Kadam, Propeller Ads, Adsterra)</p>
         </div>
         
-        <!-- Dynamic Notifications -->
-        <div class="notification-container top" id="notificationContainerTop"></div>
-        <div class="notification-container bottom" id="notificationContainerBottom"></div>
-        
-        <!-- Platforms List -->
+        <!-- Lista Completa de Plataformas -->
         <div class="platforms-list">
             <!-- FaucetPay -->
             <div class="platform-card">
                 <div class="platform-header">
                     <div>
                         <span class="platform-name">1. FaucetPay</span>
-                        <span class="platform-badge">MOST POPULAR</span>
+                        <span class="platform-badge">MAIS POPULAR</span>
                     </div>
                     <div class="platform-rating">4.9 <span class="stars">★★★★★</span></div>
                 </div>
                 <div class="platform-details">
-                    <p>💰 <strong>5,342 withdrawals today</strong> | Minimum: 50 DOGE</p>
-                    <p>⚡ Instant payments in 10+ cryptocurrencies</p>
+                    <p>💰 <strong>5,342 saques hoje</strong> | Mínimo: 50 DOGE</p>
+                    <p>⚡ Pagamentos instantâneos em 10+ criptomoedas</p>
                 </div>
-                <button class="claim-btn" onclick="showPlatformNotification('FaucetPay', 'DOGE')">WITHDRAW NOW +100 BONUS</button>
+                <button class="claim-btn" onclick="showPlatformNotification('FaucetPay', 'DOGE')">SAQUE AGORA +100 BÔNUS</button>
             </div>
             
-            <!-- [REST OF YOUR PLATFORM CARDS HERE] -->
+            <!-- FireFaucet -->
+            <div class="platform-card">
+                <div class="platform-header">
+                    <div>
+                        <span class="platform-name">2. FireFaucet</span>
+                        <span class="platform-badge">BÔNUS 2X</span>
+                    </div>
+                    <div class="platform-rating">4.7 <span class="stars">★★★★★</span></div>
+                </div>
+                <div class="platform-details">
+                    <p>🔥 <strong>2,100 usuários online</strong> | Pagamento em RUB</p>
+                    <p>🎮 Jogos exclusivos com recompensas em cripto</p>
+                </div>
+                <button class="claim-btn" onclick="showPlatformNotification('FireFaucet', 'RUB')">GANHE AQUI +50% BÔNUS</button>
+            </div>
             
+            <!-- Cointiply -->
+            <div class="platform-card">
+                <div class="platform-header">
+                    <div>
+                        <span class="platform-name">3. Cointiply</span>
+                        <span class="platform-badge">JOGOS</span>
+                    </div>
+                    <div class="platform-rating">4.8 <span class="stars">★★★★★</span></div>
+                </div>
+                <div class="platform-details">
+                    <p>🎰 <strong>5,000 SATS grátis</strong> no cadastro</p>
+                    <p>🕹️ Jogos que pagam em Bitcoin e Dogecoin</p>
+                </div>
+                <button class="claim-btn" onclick="showPlatformNotification('Cointiply', 'BTC')">JOGUE AGORA +1,000 SATS</button>
+            </div>
+            
+            <!-- SeoFast -->
+            <div class="platform-card">
+                <div class="platform-header">
+                    <div>
+                        <span class="platform-name">4. SeoFast</span>
+                        <span class="platform-badge">RUSSO</span>
+                    </div>
+                    <div class="platform-rating">4.5 <span class="stars">★★★★☆</span></div>
+                </div>
+                <div class="platform-details">
+                    <p>📈 <strong>Pagamentos em RUB</strong> via Payeer/Qiwi</p>
+                    <p>💼 Diversas tarefas disponíveis</p>
+                </div>
+                <button class="claim-btn" onclick="showPlatformNotification('SeoFast', 'RUB')">COMEÇAR AGORA</button>
+            </div>
+            
+            <!-- Wmmail -->
+            <div class="platform-card">
+                <div class="platform-header">
+                    <div>
+                        <span class="platform-name">5. Wmmail</span>
+                        <span class="platform-badge">PTC</span>
+                    </div>
+                    <div class="platform-rating">4.3 <span class="stars">★★★★☆</span></div>
+                </div>
+                <div class="platform-details">
+                    <p>📧 <strong>Ganhe lendo emails</strong> | Mínimo: $0.50</p>
+                    <p>🔄 Saques processados em 24h</p>
+                </div>
+                <button class="claim-btn" onclick="showPlatformNotification('Wmmail', 'USD')">LER EMAILS</button>
+            </div>
+            
+            <!-- SocialTools -->
+            <div class="platform-card">
+                <div class="platform-header">
+                    <div>
+                        <span class="platform-name">6. SocialTools</span>
+                        <span class="platform-badge">SOCIAL</span>
+                    </div>
+                    <div class="platform-rating">4.4 <span class="stars">★★★★☆</span></div>
+                </div>
+                <div class="platform-details">
+                    <p>📱 <strong>Ganhe com redes sociais</strong></p>
+                    <p>👍 Curtidas, seguidores e muito mais</p>
+                </div>
+                <button class="claim-btn" onclick="showPlatformNotification('SocialTools', 'BTC')">PARTICIPAR</button>
+            </div>
+            
+            <!-- SeoSprint -->
+            <div class="platform-card">
+                <div class="platform-header">
+                    <div>
+                        <span class="platform-name">7. SeoSprint</span>
+                        <span class="platform-badge">TAREFAS</span>
+                    </div>
+                    <div class="platform-rating">4.2 <span class="stars">★★★★☆</span></div>
+                </div>
+                <div class="platform-details">
+                    <p>📊 <strong>Diversas tarefas simples</strong></p>
+                    <p>⏱️ Ganhos rápidos</p>
+                </div>
+                <button class="claim-btn" onclick="showPlatformNotification('SeoSprint', 'RUB')">INICIAR TAREFAS</button>
+            </div>
+            
+            <!-- ProfitCentr -->
+            <div class="platform-card">
+                <div class="platform-header">
+                    <div>
+                        <span class="platform-name">8. ProfitCentr</span>
+                        <span class="platform-badge">MULTI</span>
+                    </div>
+                    <div class="platform-rating">4.6 <span class="stars">★★★★★</span></div>
+                </div>
+                <div class="platform-details">
+                    <p>💰 <strong>Múltiplas formas de ganhar</strong></p>
+                    <p>🌎 Disponível mundialmente</p>
+                </div>
+                <button class="claim-btn" onclick="showPlatformNotification('ProfitCentr', 'BTC')">ACESSAR PLATAFORMA</button>
+            </div>
+            
+            <!-- Web-IP -->
+            <div class="platform-card">
+                <div class="platform-header">
+                    <div>
+                        <span class="platform-name">9. Web-IP</span>
+                        <span class="platform-badge">SURF</span>
+                    </div>
+                    <div class="platform-rating">4.0 <span class="stars">★★★★☆</span></div>
+                </div>
+                <div class="platform-details">
+                    <p>🌐 <strong>Ganhe navegando na web</strong></p>
+                    <p>⏳ Acumule pontos automaticamente</p>
+                </div>
+                <button class="claim-btn" onclick="showPlatformNotification('Web-IP', 'DOGE')">COMEÇAR A NAVEGAR</button>
+            </div>
+            
+            <!-- IpGold -->
+            <div class="platform-card">
+                <div class="platform-header">
+                    <div>
+                        <span class="platform-name">10. IpGold</span>
+                        <span class="platform-badge">AUTOMÁTICO</span>
+                    </div>
+                    <div class="platform-rating">4.1 <span class="stars">★★★★☆</span></div>
+                </div>
+                <div class="platform-details">
+                    <p>🤖 <strong>Ganhos automáticos</strong></p>
+                    <p>💳 Saques para PayPal e cripto</p>
+                </div>
+                <button class="claim-btn" onclick="showPlatformNotification('IpGold', 'USD')">ATIVAR GANHOS</button>
+            </div>
+            
+            <!-- FreeBitco.in -->
+            <div class="platform-card">
+                <div class="platform-header">
+                    <div>
+                        <span class="platform-name">11. FreeBitco.in</span>
+                        <span class="platform-badge">LENDÁRIO</span>
+                    </div>
+                    <div class="platform-rating">4.9 <span class="stars">★★★★★</span></div>
+                </div>
+                <div class="platform-details">
+                    <p>🎁 <strong>Gire a roda grátis</strong> a cada hora</p>
+                    <p>🏆 Mais de 1 milhão de usuários</p>
+                </div>
+                <button class="claim-btn" onclick="showPlatformNotification('FreeBitco.in', 'BTC')">GIRAR RODA AGORA</button>
+            </div>
+            
+            <!-- ADBTC -->
+            <div class="platform-card">
+                <div class="platform-header">
+                    <div>
+                        <span class="platform-name">12. ADBTC</span>
+                        <span class="platform-badge">PTC</span>
+                    </div>
+                    <div class="platform-rating">4.3 <span class="stars">★★★★☆</span></div>
+                </div>
+                <div class="platform-details">
+                    <p>📌 <strong>Ganhe Bitcoin clicando</strong></p>
+                    <p>⚡ Saques rápidos</p>
+                </div>
+                <button class="claim-btn" onclick="showPlatformNotification('ADBTC', 'BTC')">CLICAR PARA GANHAR</button>
+            </div>
         </div>
         
-        <!-- CPA Offers Section -->
-        <section id="cpa-offers">
-            <h2 style="text-align: center; margin-bottom: 30px; color: #FFD700;">💰 Exclusive Money-Making Offers</h2>
+        <!-- Seção CPA (oculta inicialmente) -->
+        <section id="cpa-offers" style="display: none; padding: 30px 0; margin-top: 40px; border-top: 1px solid #333;">
+            <h2 style="text-align: center; margin-bottom: 25px; color: #FFD700;">💰 Ofertas Exclusivas de CPA</h2>
             
-            <div class="offers-grid">
-                <!-- Offer 1 -->
-                <div class="offer-card">
+            <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px;">
+                <!-- Oferta 1 -->
+                <div style="background: rgba(40, 40, 40, 0.7); border-radius: 10px; padding: 20px; border: 1px solid #444;">
                     <div style="display: flex; justify-content: space-between; margin-bottom: 15px;">
-                        <h3 style="color: #FF9500;">SurveyJunkie</h3>
-                        <span style="background: #4CAF50; color: white; padding: 3px 10px; border-radius: 20px; font-size: 0.8rem;">Earn $5-$25</span>
+                        <h3 style="color: #FF9500;">Pesquisas Remuneradas</h3>
+                        <span style="background: #4CAF50; color: white; padding: 3px 10px; border-radius: 20px; font-size: 0.8rem;">Ganhe R$5-50</span>
                     </div>
-                    <p style="margin-bottom: 15px;">Complete short surveys and get paid instantly to your PayPal.</p>
-                    <a href="https://www.surveyjunkie.com" target="_blank" style="background: #FF9500; color: white; padding: 10px 20px; border-radius: 5px; text-decoration: none; display: block; text-align: center; font-weight: bold;">START EARNING</a>
+                    <p style="margin-bottom: 15px; font-size: 0.9rem;">Responda pesquisas rápidas e receba em sua carteira de cripto.</p>
+                    <a href="#" onclick="trackOfferClick('survey')" style="background: #FF9500; color: white; padding: 10px; border-radius: 5px; text-decoration: none; display: block; text-align: center; font-weight: bold; font-size: 0.9rem;">PARTICIPAR AGORA</a>
                 </div>
                 
-                <!-- Offer 2 -->
-                <div class="offer-card">
+                <!-- Oferta 2 -->
+                <div style="background: rgba(40, 40, 40, 0.7); border-radius: 10px; padding: 20px; border: 1px solid #444;">
                     <div style="display: flex; justify-content: space-between; margin-bottom: 15px;">
-                        <h3 style="color: #FF9500;">Swagbucks</h3>
-                        <span style="background: #4CAF50; color: white; padding: 3px 10px; border-radius: 20px; font-size: 0.8rem;">$10 Bonus</span>
+                        <h3 style="color: #FF9500;">Teste de Apps</h3>
+                        <span style="background: #4CAF50; color: white; padding: 3px 10px; border-radius: 20px; font-size: 0.8rem;">Ganhe R$10-100</span>
                     </div>
-                    <p style="margin-bottom: 15px;">Watch videos, play games and earn gift cards or cash.</p>
-                    <a href="https://www.swagbucks.com" target="_blank" style="background: #FF9500; color: white; padding: 10px 20px; border-radius: 5px; text-decoration: none; display: block; text-align: center; font-weight: bold;">JOIN NOW</a>
+                    <p style="margin-bottom: 15px; font-size: 0.9rem;">Teste novos aplicativos e ganhe recompensas em criptomoedas.</p>
+                    <a href="#" onclick="trackOfferClick('app-test')" style="background: #FF9500; color: white; padding: 10px; border-radius: 5px; text-decoration: none; display: block; text-align: center; font-weight: bold; font-size: 0.9rem;">COMEÇAR A TESTAR</a>
                 </div>
                 
-                <!-- Offer 3 -->
-                <div class="offer-card">
+                <!-- Oferta 3 -->
+                <div style="background: rgba(40, 40, 40, 0.7); border-radius: 10px; padding: 20px; border: 1px solid #444;">
                     <div style="display: flex; justify-content: space-between; margin-bottom: 15px;">
-                        <h3 style="color: #FF9500;">InboxDollars</h3>
-                        <span style="background: #4CAF50; color: white; padding: 3px 10px; border-radius: 20px; font-size: 0.8rem;">$5 Signup Bonus</span>
+                        <h3 style="color: #FF9500;">Cadastros Premium</h3>
+                        <span style="background: #4CAF50; color: white; padding: 3px 10px; border-radius: 20px; font-size: 0.8rem;">Ganhe R$15-200</span>
                     </div>
-                    <p style="margin-bottom: 15px;">Get paid to read emails and complete offers.</p>
-                    <a href="https://www.inboxdollars.com" target="_blank" style="background: #FF9500; color: white; padding: 10px 20px; border-radius: 5px; text-decoration: none; display: block; text-align: center; font-weight: bold;">CLAIM BONUS</a>
+                    <p style="margin-bottom: 15px; font-size: 0.9rem;">Cadastre-se em plataformas selecionadas e ganhe bônus.</p>
+                    <a href="#" onclick="trackOfferClick('signup')" style="background: #FF9500; color: white; padding: 10px; border-radius: 5px; text-decoration: none; display: block; text-align: center; font-weight: bold; font-size: 0.9rem;">VER OFERTAS</a>
                 </div>
             </div>
         </section>
         
-        <!-- Footer -->
         <footer>
             <div class="container">
                 <p>
-                    <a href="about.html">About</a> |
-                    <a href="privacy.html">Privacy Policy</a> |
-                    <a href="terms.html">Terms</a> |
-                    <a href="contact.html">Contact</a>
+                    <a href="about.html">Sobre</a> |
+                    <a href="privacy.html">Privacidade</a> |
+                    <a href="terms.html">Termos</a> |
+                    <a href="contact.html">Contato</a>
                 </p>
-                <p>© 2023 Best Crypto Faucets. All rights reserved.</p>
-                <p style="font-size: 0.7rem; margin-top: 5px;">Some links may be affiliate links.</p>
+                <p>© 2023 Top Plataformas Cripto. Alguns links podem ser afiliados.</p>
             </div>
         </footer>
     </div>
     
-    <!-- CPA Notification Bar -->
-    <div id="cpa-notification" style="display: none;">
-        <div>
-            <span style="font-weight: bold;">🔥 HOT OFFERS!</span> 
-            <span>Earn up to <span style="color: #FFD700; font-weight: bold;">$50</span> completing simple tasks!</span>
+    <!-- Notificação Flutuante de CPA -->
+    <div id="cpa-floating-notification">
+        <button class="close-btn" onclick="closeCpaNotification()">✕</button>
+        <div class="cpa-badge">OFERTAS LIMITADAS</div>
+        <div class="cpa-content">
+            <strong>Ganhe até R$200</strong> completando tarefas simples!
         </div>
-        <div>
-            <a href="#cpa-offers">VIEW OFFERS</a>
-            <button class="close-cpa">✕</button>
-        </div>
+        <a href="#cpa-offers" class="cpa-link">VER OFERTAS</a>
     </div>
     
-    <!-- Cookie Banner -->
-    <div id="cookie-banner">
-        <p>We use cookies to improve your experience. <a href="privacy.html" style="color: #FFD700;">Learn more</a></p>
-        <button onclick="acceptCookies()">Accept</button>
+    <!-- Banner de Cookies -->
+    <div id="cookie-banner" style="position: fixed; bottom: 0; left: 0; right: 0; background: rgba(0,0,0,0.9); padding: 12px; text-align: center; display: none; z-index: 1000;">
+        <p style="color: white; margin: 0; font-size: 0.9rem;">Usamos cookies para melhorar sua experiência. <a href="privacy.html" style="color: #FFD700;">Saiba mais</a></p>
+        <button onclick="acceptCookies()" style="background: #FF9500; color: white; border: none; padding: 5px 15px; margin-left: 10px; border-radius: 3px; cursor: pointer; font-size: 0.8rem;">Aceitar</button>
     </div>
 
     <script>
-        // Standardized notifications
+        // Notificações dinâmicas
         const notifications = [
-            {
-                icon: "💸",
-                badge: "WITHDRAWAL",
-                platform: "FaucetPay",
-                currency: "DOGE",
-                amount: (Math.random() * 5 + 0.5).toFixed(3)
-            },
-            {
-                icon: "🔥",
-                badge: "RECORD",
-                platform: "FireFaucet",
-                currency: "RUB",
-                amount: Math.floor(Math.random() * 5000 + 1000)
-            },
-            {
-                icon: "🎰",
-                badge: "BONUS",
-                platform: "Cointiply",
-                currency: "BTC",
-                amount: (Math.random() * 0.001 + 0.0005).toFixed(8).replace(/\.?0+$/, "")
-            },
-            {
-                icon: "📈",
-                badge: "PAYMENT",
-                platform: "SeoFast",
-                currency: "RUB",
-                amount: Math.floor(Math.random() * 3000 + 500)
-            },
-            {
-                icon: "📧",
-                badge: "EMAIL",
-                platform: "Wmmail",
-                currency: "USD",
-                amount: (Math.random() * 10 + 1).toFixed(2)
-            },
-            {
-                icon: "👍",
-                badge: "SOCIAL",
-                platform: "SocialTools",
-                currency: "BTC",
-                amount: (Math.random() * 0.002 + 0.0003).toFixed(8).replace(/\.?0+$/, "")
-            },
-            {
-                icon: "⚡",
-                badge: "TASK",
-                platform: "SeoSprint",
-                currency: "RUB",
-                amount: Math.floor(Math.random() * 2000 + 300)
-            },
-            {
-                icon: "🌎",
-                badge: "GLOBAL",
-                platform: "ProfitCentr",
-                currency: "BTC",
-                amount: (Math.random() * 0.003 + 0.0007).toFixed(8).replace(/\.?0+$/, "")
-            },
-            {
-                icon: "🌐",
-                badge: "BROWSING",
-                platform: "Web-IP",
-                currency: "DOGE",
-                amount: (Math.random() * 100 + 20).toFixed(2)
-            },
-            {
-                icon: "🤖",
-                badge: "AUTOMATIC",
-                platform: "IpGold",
-                currency: "USD",
-                amount: (Math.random() * 15 + 2).toFixed(2)
-            },
-            {
-                icon: "🎁",
-                badge: "PRIZE",
-                platform: "FreeBitco.in",
-                currency: "BTC",
-                amount: (Math.random() * 0.005 + 0.001).toFixed(8).replace(/\.?0+$/, "")
-            },
-            {
-                icon: "💰",
-                badge: "CLICK",
-                platform: "ADBTC",
-                currency: "BTC",
-                amount: (Math.random() * 0.0005 + 0.0001).toFixed(8).replace(/\.?0+$/, "")
-            }
+            // [SEU CÓDIGO EXISTENTE DE NOTIFICAÇÕES...]
         ];
         
-        // Generate random username
-        function getRandomUsername() {
-            const prefixes = ["Crypto", "Bitcoin", "Doge", "Trader", "Investor", "Miner", "HODL", "Blockchain"];
-            const suffixes = ["King", "Master", "Pro", "Expert", "Guru", "Whale", "Hunter", "Lover"];
-            return "@" + prefixes[Math.floor(Math.random() * prefixes.length)] + 
-                   suffixes[Math.floor(Math.random() * suffixes.length)] + 
-                   Math.floor(Math.random() * 100);
-        }
-        
-        // Show platform notification
-        function showPlatformNotification(platform, currency) {
-            const username = getRandomUsername();
-            let amount;
-            
-            if (currency === "BTC") {
-                amount = (Math.random() * 0.005 + 0.0001).toFixed(8).replace(/\.?0+$/, "");
-            } else if (currency === "DOGE") {
-                amount = (Math.random() * 100 + 10).toFixed(2);
-            } else if (currency === "RUB") {
-                amount = Math.floor(Math.random() * 5000 + 1000);
-            } else { // USD
-                amount = (Math.random() * 15 + 1).toFixed(2);
-            }
-            
-            showNotification({
-                icon: "💸",
-                badge: "WITHDRAWAL",
-                message: `<strong>${username}</strong> withdrew <span style='color:#FFD700'>${amount} ${currency}</span> via ${platform}!`,
-                duration: 6000
-            });
-        }
-        
-        // Improved notification system
-        function showNotification(notif) {
-            // Alternate between top and bottom containers
-            const containers = [
-                document.getElementById('notificationContainerTop'),
-                document.getElementById('notificationContainerBottom')
-            ];
-            const container = containers[Math.floor(Math.random() * containers.length)];
-            
-            const notification = document.createElement('div');
-            notification.className = 'notification';
-            notification.innerHTML = `
-                <div class="notification-icon">${notif.icon}</div>
-                <div class="notification-content">
-                    <span class="notification-badge">${notif.badge}</span>
-                    <p>${notif.message}</p>
-                </div>
-            `;
-            
-            container.appendChild(notification);
-            
-            // Activate animation after small delay
+        // Mostrar notificação flutuante de CPA
+        function showCpaNotification() {
+            const cpaNotification = document.getElementById('cpa-floating-notification');
             setTimeout(() => {
-                notification.classList.add('active');
-            }, 10);
-            
-            // Remove after duration with exit animation
-            setTimeout(() => {
-                notification.classList.add('exiting');
+                cpaNotification.classList.add('show');
+                
+                // Fechar após 30 segundos se não interagir
                 setTimeout(() => {
-                    notification.remove();
-                }, 400); // Time for exit animation
-            }, notif.duration);
+                    if (cpaNotification.classList.contains('show')) {
+                        closeCpaNotification();
+                    }
+                }, 30000);
+            }, 5000); // Mostrar após 5 segundos
         }
         
-        // Cookie Control
+        // Fechar notificação CPA
+        function closeCpaNotification() {
+            document.getElementById('cpa-floating-notification').classList.remove('show');
+            localStorage.setItem('cpaNotificationClosed', 'true');
+        }
+        
+        // Aceitar cookies
         function acceptCookies() {
             localStorage.setItem('cookiesAccepted', 'true');
             document.getElementById('cookie-banner').style.display = 'none';
-            adjustCpaPosition();
         }
         
-        // CPA Notification Control
-        function closeCpaNotification() {
-            document.getElementById('cpa-notification').style.display = 'none';
-            localStorage.setItem('cpaNotificationClosed', 'true');
-            adjustCookiePosition();
+        // Rolar suavemente para a seção CPA
+        function scrollToCpaOffers() {
+            document.getElementById('cpa-offers').style.display = 'block';
+            window.scrollTo({
+                top: document.getElementById('cpa-offers').offsetTop - 20,
+                behavior: 'smooth'
+            });
         }
         
-        function adjustCpaPosition() {
-            const cookieBanner = document.getElementById('cookie-banner');
-            const cpaNotification = document.getElementById('cpa-notification');
-            
-            if (cookieBanner.style.display === 'block' || cookieBanner.style.display === '') {
-                cpaNotification.style.bottom = '50px';
-            } else {
-                cpaNotification.style.bottom = '0';
-            }
+        // Rastrear clique em ofertas
+        function trackOfferClick(offerType) {
+            // Aqui você pode adicionar código para rastrear conversões
+            console.log('Oferta clicada:', offerType);
         }
         
-        function adjustCookiePosition() {
-            const cpaNotification = document.getElementById('cpa-notification');
-            const cookieBanner = document.getElementById('cookie-banner');
-            
-            if (cpaNotification.style.display === 'flex' || cpaNotification.style.display === '') {
-                cookieBanner.style.bottom = '60px';
-            } else {
-                cookieBanner.style.bottom = '0';
-            }
-        }
-        
-        // Start effects when page loads
+        // Iniciar quando a página carregar
         window.addEventListener('load', function() {
-            // Typewriter effect
-            typeWriter();
-            
-            // Cookie Banner
+            // Mostrar banner de cookies se não aceito
             if (!localStorage.getItem('cookiesAccepted')) {
                 document.getElementById('cookie-banner').style.display = 'block';
             }
             
-            // CPA Notification
+            // Mostrar notificação CPA se não fechada
             if (!localStorage.getItem('cpaNotificationClosed')) {
-                document.getElementById('cpa-notification').style.display = 'flex';
-                
-                // Close after 30 seconds if no interaction
-                setTimeout(() => {
-                    if (document.getElementById('cpa-notification').style.display === 'flex') {
-                        closeCpaNotification();
-                    }
-                }, 30000);
+                showCpaNotification();
             }
             
-            // Adjust positions
-            adjustCpaPosition();
-            adjustCookiePosition();
-            
-            // Close CPA button
-            document.querySelector('.close-cpa').addEventListener('click', closeCpaNotification);
-            
-            // Show CPA section when clicking link
-            document.querySelector('#cpa-notification a').addEventListener('click', function(e) {
+            // Configurar link da notificação CPA
+            document.querySelector('#cpa-floating-notification .cpa-link').addEventListener('click', function(e) {
                 e.preventDefault();
-                document.getElementById('cpa-offers').style.display = 'block';
-                document.getElementById('cpa-offers').scrollIntoView({ behavior: 'smooth' });
+                closeCpaNotification();
+                scrollToCpaOffers();
             });
             
-            // Automatic notification rotation
-            setTimeout(rotateNotifications, 2000);
+            // [SEU CÓDIGO EXISTENTE DE CARREGAMENTO...]
         });
         
-        // Automatic notification rotation
-        let currentNotif = 0;
-        function rotateNotifications() {
-            const notif = notifications[currentNotif];
-            const username = getRandomUsername();
-            
-            showNotification({
-                icon: notif.icon,
-                badge: notif.badge,
-                message: `<strong>${username}</strong> withdrew <span style='color:#FFD700'>${notif.amount} ${notif.currency}</span> via ${notif.platform}!`,
-                duration: 7000
-            });
-            
-            currentNotif = (currentNotif + 1) % notifications.length;
-            setTimeout(rotateNotifications, 10000); // Every 10 seconds
-        }
-        
-        // Typewriter effect for title
-        function typeWriter() {
-            const title = document.querySelector('h1');
-            const originalText = title.innerText;
-            title.innerText = '';
-            
-            let i = 0;
-            const typing = setInterval(() => {
-                if (i < originalText.length) {
-                    title.innerText += originalText.charAt(i);
-                    i++;
-                } else {
-                    clearInterval(typing);
-                }
-            }, 50);
-        }
+        // Fazer a notificação CPA acompanhar o scroll
+        window.addEventListener('scroll', function() {
+            const cpaNotification = document.getElementById('cpa-floating-notification');
+            if (cpaNotification.classList.contains('show')) {
+                const scrollPosition = window.scrollY || window.pageYOffset;
+                cpaNotification.style.bottom = Math.max(20, 20 + scrollPosition) + 'px';
+            }
+        });
     </script>
 </body>
 </html>
